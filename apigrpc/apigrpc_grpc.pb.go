@@ -158,8 +158,12 @@ type NakamaClient interface {
 	UpdateGroup(ctx context.Context, in *api.UpdateGroupRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Validate Apple IAP Receipt
 	ValidatePurchaseApple(ctx context.Context, in *api.ValidatePurchaseAppleRequest, opts ...grpc.CallOption) (*api.ValidatePurchaseResponse, error)
+	// Validate Apple Subscription Receipt
+	ValidateSubscriptionApple(ctx context.Context, in *api.ValidateSubscriptionAppleRequest, opts ...grpc.CallOption) (*api.ValidateSubscriptionResponse, error)
 	// Validate Google IAP Receipt
 	ValidatePurchaseGoogle(ctx context.Context, in *api.ValidatePurchaseGoogleRequest, opts ...grpc.CallOption) (*api.ValidatePurchaseResponse, error)
+	// Validate Google Subscription Receipt
+	ValidateSubscriptionGoogle(ctx context.Context, in *api.ValidateSubscriptionGoogleRequest, opts ...grpc.CallOption) (*api.ValidateSubscriptionResponse, error)
 	// Validate Huawei IAP Receipt
 	ValidatePurchaseHuawei(ctx context.Context, in *api.ValidatePurchaseHuaweiRequest, opts ...grpc.CallOption) (*api.ValidatePurchaseResponse, error)
 	// Write a record to a leaderboard.
@@ -799,9 +803,27 @@ func (c *nakamaClient) ValidatePurchaseApple(ctx context.Context, in *api.Valida
 	return out, nil
 }
 
+func (c *nakamaClient) ValidateSubscriptionApple(ctx context.Context, in *api.ValidateSubscriptionAppleRequest, opts ...grpc.CallOption) (*api.ValidateSubscriptionResponse, error) {
+	out := new(api.ValidateSubscriptionResponse)
+	err := c.cc.Invoke(ctx, "/nakama.api.Nakama/ValidateSubscriptionApple", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *nakamaClient) ValidatePurchaseGoogle(ctx context.Context, in *api.ValidatePurchaseGoogleRequest, opts ...grpc.CallOption) (*api.ValidatePurchaseResponse, error) {
 	out := new(api.ValidatePurchaseResponse)
 	err := c.cc.Invoke(ctx, "/nakama.api.Nakama/ValidatePurchaseGoogle", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *nakamaClient) ValidateSubscriptionGoogle(ctx context.Context, in *api.ValidateSubscriptionGoogleRequest, opts ...grpc.CallOption) (*api.ValidateSubscriptionResponse, error) {
+	out := new(api.ValidateSubscriptionResponse)
+	err := c.cc.Invoke(ctx, "/nakama.api.Nakama/ValidateSubscriptionGoogle", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -986,8 +1008,12 @@ type NakamaServer interface {
 	UpdateGroup(context.Context, *api.UpdateGroupRequest) (*emptypb.Empty, error)
 	// Validate Apple IAP Receipt
 	ValidatePurchaseApple(context.Context, *api.ValidatePurchaseAppleRequest) (*api.ValidatePurchaseResponse, error)
+	// Validate Apple Subscription Receipt
+	ValidateSubscriptionApple(context.Context, *api.ValidateSubscriptionAppleRequest) (*api.ValidateSubscriptionResponse, error)
 	// Validate Google IAP Receipt
 	ValidatePurchaseGoogle(context.Context, *api.ValidatePurchaseGoogleRequest) (*api.ValidatePurchaseResponse, error)
+	// Validate Google Subscription Receipt
+	ValidateSubscriptionGoogle(context.Context, *api.ValidateSubscriptionGoogleRequest) (*api.ValidateSubscriptionResponse, error)
 	// Validate Huawei IAP Receipt
 	ValidatePurchaseHuawei(context.Context, *api.ValidatePurchaseHuaweiRequest) (*api.ValidatePurchaseResponse, error)
 	// Write a record to a leaderboard.
@@ -1210,8 +1236,14 @@ func (UnimplementedNakamaServer) UpdateGroup(context.Context, *api.UpdateGroupRe
 func (UnimplementedNakamaServer) ValidatePurchaseApple(context.Context, *api.ValidatePurchaseAppleRequest) (*api.ValidatePurchaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidatePurchaseApple not implemented")
 }
+func (UnimplementedNakamaServer) ValidateSubscriptionApple(context.Context, *api.ValidateSubscriptionAppleRequest) (*api.ValidateSubscriptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateSubscriptionApple not implemented")
+}
 func (UnimplementedNakamaServer) ValidatePurchaseGoogle(context.Context, *api.ValidatePurchaseGoogleRequest) (*api.ValidatePurchaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidatePurchaseGoogle not implemented")
+}
+func (UnimplementedNakamaServer) ValidateSubscriptionGoogle(context.Context, *api.ValidateSubscriptionGoogleRequest) (*api.ValidateSubscriptionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateSubscriptionGoogle not implemented")
 }
 func (UnimplementedNakamaServer) ValidatePurchaseHuawei(context.Context, *api.ValidatePurchaseHuaweiRequest) (*api.ValidatePurchaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidatePurchaseHuawei not implemented")
@@ -2480,6 +2512,24 @@ func _Nakama_ValidatePurchaseApple_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Nakama_ValidateSubscriptionApple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(api.ValidateSubscriptionAppleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NakamaServer).ValidateSubscriptionApple(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/nakama.api.Nakama/ValidateSubscriptionApple",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NakamaServer).ValidateSubscriptionApple(ctx, req.(*api.ValidateSubscriptionAppleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Nakama_ValidatePurchaseGoogle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(api.ValidatePurchaseGoogleRequest)
 	if err := dec(in); err != nil {
@@ -2494,6 +2544,24 @@ func _Nakama_ValidatePurchaseGoogle_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NakamaServer).ValidatePurchaseGoogle(ctx, req.(*api.ValidatePurchaseGoogleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Nakama_ValidateSubscriptionGoogle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(api.ValidateSubscriptionGoogleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NakamaServer).ValidateSubscriptionGoogle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/nakama.api.Nakama/ValidateSubscriptionGoogle",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NakamaServer).ValidateSubscriptionGoogle(ctx, req.(*api.ValidateSubscriptionGoogleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2854,8 +2922,16 @@ var Nakama_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Nakama_ValidatePurchaseApple_Handler,
 		},
 		{
+			MethodName: "ValidateSubscriptionApple",
+			Handler:    _Nakama_ValidateSubscriptionApple_Handler,
+		},
+		{
 			MethodName: "ValidatePurchaseGoogle",
 			Handler:    _Nakama_ValidatePurchaseGoogle_Handler,
+		},
+		{
+			MethodName: "ValidateSubscriptionGoogle",
+			Handler:    _Nakama_ValidateSubscriptionGoogle_Handler,
 		},
 		{
 			MethodName: "ValidatePurchaseHuawei",

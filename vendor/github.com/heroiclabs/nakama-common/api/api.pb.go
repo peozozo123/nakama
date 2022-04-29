@@ -39,6 +39,112 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Validation Provider,
+type StoreProvider int32
+
+const (
+	// Apple App Store
+	StoreProvider_APPLE_APP_STORE StoreProvider = 0
+	// Google Play Store
+	StoreProvider_GOOGLE_PLAY_STORE StoreProvider = 1
+	// Huawei App Gallery
+	StoreProvider_HUAWEI_APP_GALLERY StoreProvider = 2
+)
+
+// Enum value maps for StoreProvider.
+var (
+	StoreProvider_name = map[int32]string{
+		0: "APPLE_APP_STORE",
+		1: "GOOGLE_PLAY_STORE",
+		2: "HUAWEI_APP_GALLERY",
+	}
+	StoreProvider_value = map[string]int32{
+		"APPLE_APP_STORE":    0,
+		"GOOGLE_PLAY_STORE":  1,
+		"HUAWEI_APP_GALLERY": 2,
+	}
+)
+
+func (x StoreProvider) Enum() *StoreProvider {
+	p := new(StoreProvider)
+	*p = x
+	return p
+}
+
+func (x StoreProvider) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (StoreProvider) Descriptor() protoreflect.EnumDescriptor {
+	return file_api_proto_enumTypes[0].Descriptor()
+}
+
+func (StoreProvider) Type() protoreflect.EnumType {
+	return &file_api_proto_enumTypes[0]
+}
+
+func (x StoreProvider) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use StoreProvider.Descriptor instead.
+func (StoreProvider) EnumDescriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{0}
+}
+
+// Environment where a purchase/subscription took place,
+type StoreEnvironment int32
+
+const (
+	// Unknown environment.
+	StoreEnvironment_UNKNOWN StoreEnvironment = 0
+	// Sandbox/test environment.
+	StoreEnvironment_SANDBOX StoreEnvironment = 1
+	// Production environment.
+	StoreEnvironment_PRODUCTION StoreEnvironment = 2
+)
+
+// Enum value maps for StoreEnvironment.
+var (
+	StoreEnvironment_name = map[int32]string{
+		0: "UNKNOWN",
+		1: "SANDBOX",
+		2: "PRODUCTION",
+	}
+	StoreEnvironment_value = map[string]int32{
+		"UNKNOWN":    0,
+		"SANDBOX":    1,
+		"PRODUCTION": 2,
+	}
+)
+
+func (x StoreEnvironment) Enum() *StoreEnvironment {
+	p := new(StoreEnvironment)
+	*p = x
+	return p
+}
+
+func (x StoreEnvironment) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (StoreEnvironment) Descriptor() protoreflect.EnumDescriptor {
+	return file_api_proto_enumTypes[1].Descriptor()
+}
+
+func (StoreEnvironment) Type() protoreflect.EnumType {
+	return &file_api_proto_enumTypes[1]
+}
+
+func (x StoreEnvironment) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use StoreEnvironment.Descriptor instead.
+func (StoreEnvironment) EnumDescriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{1}
+}
+
 // Operator that can be used to override the one set in the leaderboard.
 type Operator int32
 
@@ -84,11 +190,11 @@ func (x Operator) String() string {
 }
 
 func (Operator) Descriptor() protoreflect.EnumDescriptor {
-	return file_api_proto_enumTypes[0].Descriptor()
+	return file_api_proto_enumTypes[2].Descriptor()
 }
 
 func (Operator) Type() protoreflect.EnumType {
-	return &file_api_proto_enumTypes[0]
+	return &file_api_proto_enumTypes[2]
 }
 
 func (x Operator) Number() protoreflect.EnumNumber {
@@ -97,7 +203,7 @@ func (x Operator) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use Operator.Descriptor instead.
 func (Operator) EnumDescriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{0}
+	return file_api_proto_rawDescGZIP(), []int{2}
 }
 
 // The friendship status.
@@ -141,11 +247,11 @@ func (x Friend_State) String() string {
 }
 
 func (Friend_State) Descriptor() protoreflect.EnumDescriptor {
-	return file_api_proto_enumTypes[1].Descriptor()
+	return file_api_proto_enumTypes[3].Descriptor()
 }
 
 func (Friend_State) Type() protoreflect.EnumType {
-	return &file_api_proto_enumTypes[1]
+	return &file_api_proto_enumTypes[3]
 }
 
 func (x Friend_State) Number() protoreflect.EnumNumber {
@@ -198,11 +304,11 @@ func (x GroupUserList_GroupUser_State) String() string {
 }
 
 func (GroupUserList_GroupUser_State) Descriptor() protoreflect.EnumDescriptor {
-	return file_api_proto_enumTypes[2].Descriptor()
+	return file_api_proto_enumTypes[4].Descriptor()
 }
 
 func (GroupUserList_GroupUser_State) Type() protoreflect.EnumType {
-	return &file_api_proto_enumTypes[2]
+	return &file_api_proto_enumTypes[4]
 }
 
 func (x GroupUserList_GroupUser_State) Number() protoreflect.EnumNumber {
@@ -255,11 +361,11 @@ func (x UserGroupList_UserGroup_State) String() string {
 }
 
 func (UserGroupList_UserGroup_State) Descriptor() protoreflect.EnumDescriptor {
-	return file_api_proto_enumTypes[3].Descriptor()
+	return file_api_proto_enumTypes[5].Descriptor()
 }
 
 func (UserGroupList_UserGroup_State) Type() protoreflect.EnumType {
-	return &file_api_proto_enumTypes[3]
+	return &file_api_proto_enumTypes[5]
 }
 
 func (x UserGroupList_UserGroup_State) Number() protoreflect.EnumNumber {
@@ -269,112 +375,6 @@ func (x UserGroupList_UserGroup_State) Number() protoreflect.EnumNumber {
 // Deprecated: Use UserGroupList_UserGroup_State.Descriptor instead.
 func (UserGroupList_UserGroup_State) EnumDescriptor() ([]byte, []int) {
 	return file_api_proto_rawDescGZIP(), []int{88, 0, 0}
-}
-
-// Validation Provider
-type ValidatedPurchase_Store int32
-
-const (
-	// Apple App Store
-	ValidatedPurchase_APPLE_APP_STORE ValidatedPurchase_Store = 0
-	// Google Play Store
-	ValidatedPurchase_GOOGLE_PLAY_STORE ValidatedPurchase_Store = 1
-	// Huawei App Gallery
-	ValidatedPurchase_HUAWEI_APP_GALLERY ValidatedPurchase_Store = 2
-)
-
-// Enum value maps for ValidatedPurchase_Store.
-var (
-	ValidatedPurchase_Store_name = map[int32]string{
-		0: "APPLE_APP_STORE",
-		1: "GOOGLE_PLAY_STORE",
-		2: "HUAWEI_APP_GALLERY",
-	}
-	ValidatedPurchase_Store_value = map[string]int32{
-		"APPLE_APP_STORE":    0,
-		"GOOGLE_PLAY_STORE":  1,
-		"HUAWEI_APP_GALLERY": 2,
-	}
-)
-
-func (x ValidatedPurchase_Store) Enum() *ValidatedPurchase_Store {
-	p := new(ValidatedPurchase_Store)
-	*p = x
-	return p
-}
-
-func (x ValidatedPurchase_Store) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ValidatedPurchase_Store) Descriptor() protoreflect.EnumDescriptor {
-	return file_api_proto_enumTypes[4].Descriptor()
-}
-
-func (ValidatedPurchase_Store) Type() protoreflect.EnumType {
-	return &file_api_proto_enumTypes[4]
-}
-
-func (x ValidatedPurchase_Store) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use ValidatedPurchase_Store.Descriptor instead.
-func (ValidatedPurchase_Store) EnumDescriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{93, 0}
-}
-
-// Environment where the purchase took place
-type ValidatedPurchase_Environment int32
-
-const (
-	// Unknown environment.
-	ValidatedPurchase_UNKNOWN ValidatedPurchase_Environment = 0
-	// Sandbox/test environment.
-	ValidatedPurchase_SANDBOX ValidatedPurchase_Environment = 1
-	// Production environment.
-	ValidatedPurchase_PRODUCTION ValidatedPurchase_Environment = 2
-)
-
-// Enum value maps for ValidatedPurchase_Environment.
-var (
-	ValidatedPurchase_Environment_name = map[int32]string{
-		0: "UNKNOWN",
-		1: "SANDBOX",
-		2: "PRODUCTION",
-	}
-	ValidatedPurchase_Environment_value = map[string]int32{
-		"UNKNOWN":    0,
-		"SANDBOX":    1,
-		"PRODUCTION": 2,
-	}
-)
-
-func (x ValidatedPurchase_Environment) Enum() *ValidatedPurchase_Environment {
-	p := new(ValidatedPurchase_Environment)
-	*p = x
-	return p
-}
-
-func (x ValidatedPurchase_Environment) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (ValidatedPurchase_Environment) Descriptor() protoreflect.EnumDescriptor {
-	return file_api_proto_enumTypes[5].Descriptor()
-}
-
-func (ValidatedPurchase_Environment) Type() protoreflect.EnumType {
-	return &file_api_proto_enumTypes[5]
-}
-
-func (x ValidatedPurchase_Environment) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use ValidatedPurchase_Environment.Descriptor instead.
-func (ValidatedPurchase_Environment) EnumDescriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{93, 1}
 }
 
 // A user with additional account details. Always the current user.
@@ -7050,6 +7050,64 @@ func (x *ValidatePurchaseAppleRequest) GetPersist() *wrapperspb.BoolValue {
 	return nil
 }
 
+// Apple Subscription validation request
+type ValidateSubscriptionAppleRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Base64 encoded Apple receipt data payload.
+	Receipt string `protobuf:"bytes,1,opt,name=receipt,proto3" json:"receipt,omitempty"`
+	// Persist the subscription.
+	Persist *wrapperspb.BoolValue `protobuf:"bytes,2,opt,name=persist,proto3" json:"persist,omitempty"`
+}
+
+func (x *ValidateSubscriptionAppleRequest) Reset() {
+	*x = ValidateSubscriptionAppleRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[91]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ValidateSubscriptionAppleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidateSubscriptionAppleRequest) ProtoMessage() {}
+
+func (x *ValidateSubscriptionAppleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[91]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValidateSubscriptionAppleRequest.ProtoReflect.Descriptor instead.
+func (*ValidateSubscriptionAppleRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *ValidateSubscriptionAppleRequest) GetReceipt() string {
+	if x != nil {
+		return x.Receipt
+	}
+	return ""
+}
+
+func (x *ValidateSubscriptionAppleRequest) GetPersist() *wrapperspb.BoolValue {
+	if x != nil {
+		return x.Persist
+	}
+	return nil
+}
+
 // Google IAP Purchase validation request
 type ValidatePurchaseGoogleRequest struct {
 	state         protoimpl.MessageState
@@ -7065,7 +7123,7 @@ type ValidatePurchaseGoogleRequest struct {
 func (x *ValidatePurchaseGoogleRequest) Reset() {
 	*x = ValidatePurchaseGoogleRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[91]
+		mi := &file_api_proto_msgTypes[92]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7078,7 +7136,7 @@ func (x *ValidatePurchaseGoogleRequest) String() string {
 func (*ValidatePurchaseGoogleRequest) ProtoMessage() {}
 
 func (x *ValidatePurchaseGoogleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[91]
+	mi := &file_api_proto_msgTypes[92]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7091,7 +7149,7 @@ func (x *ValidatePurchaseGoogleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidatePurchaseGoogleRequest.ProtoReflect.Descriptor instead.
 func (*ValidatePurchaseGoogleRequest) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{91}
+	return file_api_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *ValidatePurchaseGoogleRequest) GetPurchase() string {
@@ -7102,6 +7160,64 @@ func (x *ValidatePurchaseGoogleRequest) GetPurchase() string {
 }
 
 func (x *ValidatePurchaseGoogleRequest) GetPersist() *wrapperspb.BoolValue {
+	if x != nil {
+		return x.Persist
+	}
+	return nil
+}
+
+// Google Subscription validation request
+type ValidateSubscriptionGoogleRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// JSON encoded Google purchase payload.
+	Receipt string `protobuf:"bytes,1,opt,name=receipt,proto3" json:"receipt,omitempty"`
+	// Persist the subscription.
+	Persist *wrapperspb.BoolValue `protobuf:"bytes,2,opt,name=persist,proto3" json:"persist,omitempty"`
+}
+
+func (x *ValidateSubscriptionGoogleRequest) Reset() {
+	*x = ValidateSubscriptionGoogleRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[93]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ValidateSubscriptionGoogleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidateSubscriptionGoogleRequest) ProtoMessage() {}
+
+func (x *ValidateSubscriptionGoogleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[93]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValidateSubscriptionGoogleRequest.ProtoReflect.Descriptor instead.
+func (*ValidateSubscriptionGoogleRequest) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *ValidateSubscriptionGoogleRequest) GetReceipt() string {
+	if x != nil {
+		return x.Receipt
+	}
+	return ""
+}
+
+func (x *ValidateSubscriptionGoogleRequest) GetPersist() *wrapperspb.BoolValue {
 	if x != nil {
 		return x.Persist
 	}
@@ -7125,7 +7241,7 @@ type ValidatePurchaseHuaweiRequest struct {
 func (x *ValidatePurchaseHuaweiRequest) Reset() {
 	*x = ValidatePurchaseHuaweiRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[92]
+		mi := &file_api_proto_msgTypes[94]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7138,7 +7254,7 @@ func (x *ValidatePurchaseHuaweiRequest) String() string {
 func (*ValidatePurchaseHuaweiRequest) ProtoMessage() {}
 
 func (x *ValidatePurchaseHuaweiRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[92]
+	mi := &file_api_proto_msgTypes[94]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7151,7 +7267,7 @@ func (x *ValidatePurchaseHuaweiRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidatePurchaseHuaweiRequest.ProtoReflect.Descriptor instead.
 func (*ValidatePurchaseHuaweiRequest) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{92}
+	return file_api_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *ValidatePurchaseHuaweiRequest) GetPurchase() string {
@@ -7186,7 +7302,7 @@ type ValidatedPurchase struct {
 	// Purchase Transaction ID.
 	TransactionId string `protobuf:"bytes,2,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
 	// Store identifier
-	Store ValidatedPurchase_Store `protobuf:"varint,3,opt,name=store,proto3,enum=nakama.api.ValidatedPurchase_Store" json:"store,omitempty"`
+	Store StoreProvider `protobuf:"varint,3,opt,name=store,proto3,enum=nakama.api.StoreProvider" json:"store,omitempty"`
 	// UNIX Timestamp when the purchase was done.
 	PurchaseTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=purchase_time,json=purchaseTime,proto3" json:"purchase_time,omitempty"`
 	// UNIX Timestamp when the receipt validation was stored in DB.
@@ -7196,7 +7312,7 @@ type ValidatedPurchase struct {
 	// Raw provider validation response.
 	ProviderResponse string `protobuf:"bytes,7,opt,name=provider_response,json=providerResponse,proto3" json:"provider_response,omitempty"`
 	// Whether the purchase was done in production or sandbox environment.
-	Environment ValidatedPurchase_Environment `protobuf:"varint,8,opt,name=environment,proto3,enum=nakama.api.ValidatedPurchase_Environment" json:"environment,omitempty"`
+	Environment StoreEnvironment `protobuf:"varint,8,opt,name=environment,proto3,enum=nakama.api.StoreEnvironment" json:"environment,omitempty"`
 	// Whether the purchase had already been validated by Nakama before.
 	SeenBefore bool `protobuf:"varint,9,opt,name=seen_before,json=seenBefore,proto3" json:"seen_before,omitempty"`
 }
@@ -7204,7 +7320,7 @@ type ValidatedPurchase struct {
 func (x *ValidatedPurchase) Reset() {
 	*x = ValidatedPurchase{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[93]
+		mi := &file_api_proto_msgTypes[95]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7217,7 +7333,7 @@ func (x *ValidatedPurchase) String() string {
 func (*ValidatedPurchase) ProtoMessage() {}
 
 func (x *ValidatedPurchase) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[93]
+	mi := &file_api_proto_msgTypes[95]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7230,7 +7346,7 @@ func (x *ValidatedPurchase) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidatedPurchase.ProtoReflect.Descriptor instead.
 func (*ValidatedPurchase) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{93}
+	return file_api_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *ValidatedPurchase) GetProductId() string {
@@ -7247,11 +7363,11 @@ func (x *ValidatedPurchase) GetTransactionId() string {
 	return ""
 }
 
-func (x *ValidatedPurchase) GetStore() ValidatedPurchase_Store {
+func (x *ValidatedPurchase) GetStore() StoreProvider {
 	if x != nil {
 		return x.Store
 	}
-	return ValidatedPurchase_APPLE_APP_STORE
+	return StoreProvider_APPLE_APP_STORE
 }
 
 func (x *ValidatedPurchase) GetPurchaseTime() *timestamppb.Timestamp {
@@ -7282,11 +7398,11 @@ func (x *ValidatedPurchase) GetProviderResponse() string {
 	return ""
 }
 
-func (x *ValidatedPurchase) GetEnvironment() ValidatedPurchase_Environment {
+func (x *ValidatedPurchase) GetEnvironment() StoreEnvironment {
 	if x != nil {
 		return x.Environment
 	}
-	return ValidatedPurchase_UNKNOWN
+	return StoreEnvironment_UNKNOWN
 }
 
 func (x *ValidatedPurchase) GetSeenBefore() bool {
@@ -7296,7 +7412,7 @@ func (x *ValidatedPurchase) GetSeenBefore() bool {
 	return false
 }
 
-// Validate IAP response
+// Validate IAP response.
 type ValidatePurchaseResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -7309,7 +7425,7 @@ type ValidatePurchaseResponse struct {
 func (x *ValidatePurchaseResponse) Reset() {
 	*x = ValidatePurchaseResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[94]
+		mi := &file_api_proto_msgTypes[96]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7322,7 +7438,7 @@ func (x *ValidatePurchaseResponse) String() string {
 func (*ValidatePurchaseResponse) ProtoMessage() {}
 
 func (x *ValidatePurchaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[94]
+	mi := &file_api_proto_msgTypes[96]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7335,12 +7451,189 @@ func (x *ValidatePurchaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidatePurchaseResponse.ProtoReflect.Descriptor instead.
 func (*ValidatePurchaseResponse) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{94}
+	return file_api_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *ValidatePurchaseResponse) GetValidatedPurchases() []*ValidatedPurchase {
 	if x != nil {
 		return x.ValidatedPurchases
+	}
+	return nil
+}
+
+// Validate Subscription response.
+type ValidateSubscriptionResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ValidatedSubscription *ValidatedSubscription `protobuf:"bytes,1,opt,name=validated_subscription,json=validatedSubscription,proto3" json:"validated_subscription,omitempty"`
+}
+
+func (x *ValidateSubscriptionResponse) Reset() {
+	*x = ValidateSubscriptionResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[97]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ValidateSubscriptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidateSubscriptionResponse) ProtoMessage() {}
+
+func (x *ValidateSubscriptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[97]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValidateSubscriptionResponse.ProtoReflect.Descriptor instead.
+func (*ValidateSubscriptionResponse) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *ValidateSubscriptionResponse) GetValidatedSubscription() *ValidatedSubscription {
+	if x != nil {
+		return x.ValidatedSubscription
+	}
+	return nil
+}
+
+type ValidatedSubscription struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// Purchase Product ID.
+	ProductId string `protobuf:"bytes,1,opt,name=product_id,json=productId,proto3" json:"product_id,omitempty"`
+	// Purchase Original transaction ID (we only keep track of the original subscription, not subsequent renewals).
+	OriginalTransactionId string `protobuf:"bytes,2,opt,name=original_transaction_id,json=originalTransactionId,proto3" json:"original_transaction_id,omitempty"`
+	// Store identifier
+	Store StoreProvider `protobuf:"varint,3,opt,name=store,proto3,enum=nakama.api.StoreProvider" json:"store,omitempty"`
+	// UNIX Timestamp when the purchase was done.
+	PurchaseTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=purchase_time,json=purchaseTime,proto3" json:"purchase_time,omitempty"`
+	// UNIX Timestamp when the receipt validation was stored in DB.
+	CreateTime *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	// UNIX Timestamp when the receipt validation was updated in DB.
+	UpdateTime *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+	// Raw provider validation response.
+	ProviderResponse string `protobuf:"bytes,7,opt,name=provider_response,json=providerResponse,proto3" json:"provider_response,omitempty"`
+	// Whether the purchase was done in production or sandbox environment.
+	Environment StoreEnvironment `protobuf:"varint,8,opt,name=environment,proto3,enum=nakama.api.StoreEnvironment" json:"environment,omitempty"`
+	// Whether the subscription is currently active or not.
+	Active bool `protobuf:"varint,9,opt,name=active,proto3" json:"active,omitempty"`
+	// Subscription expiration time. The subscription can still be auto-renewed to extend the expiration time further.
+	ExpiryTime *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=expiry_time,json=expiryTime,proto3" json:"expiry_time,omitempty"`
+}
+
+func (x *ValidatedSubscription) Reset() {
+	*x = ValidatedSubscription{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_api_proto_msgTypes[98]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ValidatedSubscription) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidatedSubscription) ProtoMessage() {}
+
+func (x *ValidatedSubscription) ProtoReflect() protoreflect.Message {
+	mi := &file_api_proto_msgTypes[98]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValidatedSubscription.ProtoReflect.Descriptor instead.
+func (*ValidatedSubscription) Descriptor() ([]byte, []int) {
+	return file_api_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *ValidatedSubscription) GetProductId() string {
+	if x != nil {
+		return x.ProductId
+	}
+	return ""
+}
+
+func (x *ValidatedSubscription) GetOriginalTransactionId() string {
+	if x != nil {
+		return x.OriginalTransactionId
+	}
+	return ""
+}
+
+func (x *ValidatedSubscription) GetStore() StoreProvider {
+	if x != nil {
+		return x.Store
+	}
+	return StoreProvider_APPLE_APP_STORE
+}
+
+func (x *ValidatedSubscription) GetPurchaseTime() *timestamppb.Timestamp {
+	if x != nil {
+		return x.PurchaseTime
+	}
+	return nil
+}
+
+func (x *ValidatedSubscription) GetCreateTime() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreateTime
+	}
+	return nil
+}
+
+func (x *ValidatedSubscription) GetUpdateTime() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdateTime
+	}
+	return nil
+}
+
+func (x *ValidatedSubscription) GetProviderResponse() string {
+	if x != nil {
+		return x.ProviderResponse
+	}
+	return ""
+}
+
+func (x *ValidatedSubscription) GetEnvironment() StoreEnvironment {
+	if x != nil {
+		return x.Environment
+	}
+	return StoreEnvironment_UNKNOWN
+}
+
+func (x *ValidatedSubscription) GetActive() bool {
+	if x != nil {
+		return x.Active
+	}
+	return false
+}
+
+func (x *ValidatedSubscription) GetExpiryTime() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ExpiryTime
 	}
 	return nil
 }
@@ -7362,7 +7655,7 @@ type PurchaseList struct {
 func (x *PurchaseList) Reset() {
 	*x = PurchaseList{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[95]
+		mi := &file_api_proto_msgTypes[99]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7375,7 +7668,7 @@ func (x *PurchaseList) String() string {
 func (*PurchaseList) ProtoMessage() {}
 
 func (x *PurchaseList) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[95]
+	mi := &file_api_proto_msgTypes[99]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7388,7 +7681,7 @@ func (x *PurchaseList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PurchaseList.ProtoReflect.Descriptor instead.
 func (*PurchaseList) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{95}
+	return file_api_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *PurchaseList) GetValidatedPurchases() []*ValidatedPurchase {
@@ -7427,7 +7720,7 @@ type WriteLeaderboardRecordRequest struct {
 func (x *WriteLeaderboardRecordRequest) Reset() {
 	*x = WriteLeaderboardRecordRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[96]
+		mi := &file_api_proto_msgTypes[100]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7440,7 +7733,7 @@ func (x *WriteLeaderboardRecordRequest) String() string {
 func (*WriteLeaderboardRecordRequest) ProtoMessage() {}
 
 func (x *WriteLeaderboardRecordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[96]
+	mi := &file_api_proto_msgTypes[100]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7453,7 +7746,7 @@ func (x *WriteLeaderboardRecordRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteLeaderboardRecordRequest.ProtoReflect.Descriptor instead.
 func (*WriteLeaderboardRecordRequest) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{96}
+	return file_api_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *WriteLeaderboardRecordRequest) GetLeaderboardId() string {
@@ -7493,7 +7786,7 @@ type WriteStorageObject struct {
 func (x *WriteStorageObject) Reset() {
 	*x = WriteStorageObject{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[97]
+		mi := &file_api_proto_msgTypes[101]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7506,7 +7799,7 @@ func (x *WriteStorageObject) String() string {
 func (*WriteStorageObject) ProtoMessage() {}
 
 func (x *WriteStorageObject) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[97]
+	mi := &file_api_proto_msgTypes[101]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7519,7 +7812,7 @@ func (x *WriteStorageObject) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteStorageObject.ProtoReflect.Descriptor instead.
 func (*WriteStorageObject) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{97}
+	return file_api_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *WriteStorageObject) GetCollection() string {
@@ -7577,7 +7870,7 @@ type WriteStorageObjectsRequest struct {
 func (x *WriteStorageObjectsRequest) Reset() {
 	*x = WriteStorageObjectsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[98]
+		mi := &file_api_proto_msgTypes[102]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7590,7 +7883,7 @@ func (x *WriteStorageObjectsRequest) String() string {
 func (*WriteStorageObjectsRequest) ProtoMessage() {}
 
 func (x *WriteStorageObjectsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[98]
+	mi := &file_api_proto_msgTypes[102]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7603,7 +7896,7 @@ func (x *WriteStorageObjectsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteStorageObjectsRequest.ProtoReflect.Descriptor instead.
 func (*WriteStorageObjectsRequest) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{98}
+	return file_api_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *WriteStorageObjectsRequest) GetObjects() []*WriteStorageObject {
@@ -7628,7 +7921,7 @@ type WriteTournamentRecordRequest struct {
 func (x *WriteTournamentRecordRequest) Reset() {
 	*x = WriteTournamentRecordRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[99]
+		mi := &file_api_proto_msgTypes[103]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7641,7 +7934,7 @@ func (x *WriteTournamentRecordRequest) String() string {
 func (*WriteTournamentRecordRequest) ProtoMessage() {}
 
 func (x *WriteTournamentRecordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[99]
+	mi := &file_api_proto_msgTypes[103]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7654,7 +7947,7 @@ func (x *WriteTournamentRecordRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteTournamentRecordRequest.ProtoReflect.Descriptor instead.
 func (*WriteTournamentRecordRequest) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{99}
+	return file_api_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *WriteTournamentRecordRequest) GetTournamentId() string {
@@ -7686,7 +7979,7 @@ type GroupUserList_GroupUser struct {
 func (x *GroupUserList_GroupUser) Reset() {
 	*x = GroupUserList_GroupUser{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[112]
+		mi := &file_api_proto_msgTypes[116]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7699,7 +7992,7 @@ func (x *GroupUserList_GroupUser) String() string {
 func (*GroupUserList_GroupUser) ProtoMessage() {}
 
 func (x *GroupUserList_GroupUser) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[112]
+	mi := &file_api_proto_msgTypes[116]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7744,7 +8037,7 @@ type UserGroupList_UserGroup struct {
 func (x *UserGroupList_UserGroup) Reset() {
 	*x = UserGroupList_UserGroup{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[113]
+		mi := &file_api_proto_msgTypes[117]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7757,7 +8050,7 @@ func (x *UserGroupList_UserGroup) String() string {
 func (*UserGroupList_UserGroup) ProtoMessage() {}
 
 func (x *UserGroupList_UserGroup) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[113]
+	mi := &file_api_proto_msgTypes[117]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7806,7 +8099,7 @@ type WriteLeaderboardRecordRequest_LeaderboardRecordWrite struct {
 func (x *WriteLeaderboardRecordRequest_LeaderboardRecordWrite) Reset() {
 	*x = WriteLeaderboardRecordRequest_LeaderboardRecordWrite{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[114]
+		mi := &file_api_proto_msgTypes[118]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7819,7 +8112,7 @@ func (x *WriteLeaderboardRecordRequest_LeaderboardRecordWrite) String() string {
 func (*WriteLeaderboardRecordRequest_LeaderboardRecordWrite) ProtoMessage() {}
 
 func (x *WriteLeaderboardRecordRequest_LeaderboardRecordWrite) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[114]
+	mi := &file_api_proto_msgTypes[118]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7832,7 +8125,7 @@ func (x *WriteLeaderboardRecordRequest_LeaderboardRecordWrite) ProtoReflect() pr
 
 // Deprecated: Use WriteLeaderboardRecordRequest_LeaderboardRecordWrite.ProtoReflect.Descriptor instead.
 func (*WriteLeaderboardRecordRequest_LeaderboardRecordWrite) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{96, 0}
+	return file_api_proto_rawDescGZIP(), []int{100, 0}
 }
 
 func (x *WriteLeaderboardRecordRequest_LeaderboardRecordWrite) GetScore() int64 {
@@ -7882,7 +8175,7 @@ type WriteTournamentRecordRequest_TournamentRecordWrite struct {
 func (x *WriteTournamentRecordRequest_TournamentRecordWrite) Reset() {
 	*x = WriteTournamentRecordRequest_TournamentRecordWrite{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_api_proto_msgTypes[115]
+		mi := &file_api_proto_msgTypes[119]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -7895,7 +8188,7 @@ func (x *WriteTournamentRecordRequest_TournamentRecordWrite) String() string {
 func (*WriteTournamentRecordRequest_TournamentRecordWrite) ProtoMessage() {}
 
 func (x *WriteTournamentRecordRequest_TournamentRecordWrite) ProtoReflect() protoreflect.Message {
-	mi := &file_api_proto_msgTypes[115]
+	mi := &file_api_proto_msgTypes[119]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7908,7 +8201,7 @@ func (x *WriteTournamentRecordRequest_TournamentRecordWrite) ProtoReflect() prot
 
 // Deprecated: Use WriteTournamentRecordRequest_TournamentRecordWrite.ProtoReflect.Descriptor instead.
 func (*WriteTournamentRecordRequest_TournamentRecordWrite) Descriptor() ([]byte, []int) {
-	return file_api_proto_rawDescGZIP(), []int{99, 0}
+	return file_api_proto_rawDescGZIP(), []int{103, 0}
 }
 
 func (x *WriteTournamentRecordRequest_TournamentRecordWrite) GetScore() int64 {
@@ -8967,32 +9260,91 @@ var file_api_proto_rawDesc = []byte{
 	0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67,
 	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x42,
 	0x6f, 0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x07, 0x70, 0x65, 0x72, 0x73, 0x69, 0x73,
-	0x74, 0x22, 0x71, 0x0a, 0x1d, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x50, 0x75, 0x72,
-	0x63, 0x68, 0x61, 0x73, 0x65, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x12, 0x34,
-	0x0a, 0x07, 0x70, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
-	0x66, 0x2e, 0x42, 0x6f, 0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x07, 0x70, 0x65, 0x72,
-	0x73, 0x69, 0x73, 0x74, 0x22, 0x8f, 0x01, 0x0a, 0x1d, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
-	0x65, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x48, 0x75, 0x61, 0x77, 0x65, 0x69, 0x52,
+	0x74, 0x22, 0x72, 0x0a, 0x20, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x53, 0x75, 0x62,
+	0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x41, 0x70, 0x70, 0x6c, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x72, 0x65, 0x63, 0x65, 0x69, 0x70, 0x74,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x72, 0x65, 0x63, 0x65, 0x69, 0x70, 0x74, 0x12,
+	0x34, 0x0a, 0x07, 0x70, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
+	0x75, 0x66, 0x2e, 0x42, 0x6f, 0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x07, 0x70, 0x65,
+	0x72, 0x73, 0x69, 0x73, 0x74, 0x22, 0x71, 0x0a, 0x1d, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
+	0x65, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x52,
 	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x75, 0x72, 0x63, 0x68, 0x61,
 	0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x75, 0x72, 0x63, 0x68, 0x61,
-	0x73, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x73, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x73, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65,
-	0x12, 0x34, 0x0a, 0x07, 0x70, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x62, 0x75, 0x66, 0x2e, 0x42, 0x6f, 0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x07, 0x70,
-	0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x22, 0xf0, 0x04, 0x0a, 0x11, 0x56, 0x61, 0x6c, 0x69, 0x64,
-	0x61, 0x74, 0x65, 0x64, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x12, 0x1d, 0x0a, 0x0a,
-	0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x09, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x49, 0x64, 0x12, 0x25, 0x0a, 0x0e, 0x74,
-	0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x0d, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e,
-	0x49, 0x64, 0x12, 0x39, 0x0a, 0x05, 0x73, 0x74, 0x6f, 0x72, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x0e, 0x32, 0x23, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x56,
+	0x73, 0x65, 0x12, 0x34, 0x0a, 0x07, 0x70, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x42, 0x6f, 0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52,
+	0x07, 0x70, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x22, 0x73, 0x0a, 0x21, 0x56, 0x61, 0x6c, 0x69,
+	0x64, 0x61, 0x74, 0x65, 0x53, 0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e,
+	0x47, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a,
+	0x07, 0x72, 0x65, 0x63, 0x65, 0x69, 0x70, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
+	0x72, 0x65, 0x63, 0x65, 0x69, 0x70, 0x74, 0x12, 0x34, 0x0a, 0x07, 0x70, 0x65, 0x72, 0x73, 0x69,
+	0x73, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c,
+	0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x42, 0x6f, 0x6f, 0x6c, 0x56,
+	0x61, 0x6c, 0x75, 0x65, 0x52, 0x07, 0x70, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x22, 0x8f, 0x01,
+	0x0a, 0x1d, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61,
+	0x73, 0x65, 0x48, 0x75, 0x61, 0x77, 0x65, 0x69, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x1a, 0x0a, 0x08, 0x70, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x08, 0x70, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x73,
+	0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09,
+	0x73, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x12, 0x34, 0x0a, 0x07, 0x70, 0x65, 0x72,
+	0x73, 0x69, 0x73, 0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f,
+	0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x42, 0x6f, 0x6f,
+	0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x07, 0x70, 0x65, 0x72, 0x73, 0x69, 0x73, 0x74, 0x22,
+	0xd3, 0x03, 0x0a, 0x11, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x50, 0x75, 0x72,
+	0x63, 0x68, 0x61, 0x73, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
+	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x70, 0x72, 0x6f, 0x64, 0x75,
+	0x63, 0x74, 0x49, 0x64, 0x12, 0x25, 0x0a, 0x0e, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74,
+	0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x74, 0x72,
+	0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x12, 0x2f, 0x0a, 0x05, 0x73,
+	0x74, 0x6f, 0x72, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x19, 0x2e, 0x6e, 0x61, 0x6b,
+	0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x50, 0x72, 0x6f,
+	0x76, 0x69, 0x64, 0x65, 0x72, 0x52, 0x05, 0x73, 0x74, 0x6f, 0x72, 0x65, 0x12, 0x3f, 0x0a, 0x0d,
+	0x70, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x18, 0x04, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52,
+	0x0c, 0x70, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x3b, 0x0a,
+	0x0b, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x18, 0x05, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x0a,
+	0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x3b, 0x0a, 0x0b, 0x75, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
+	0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x0a, 0x75, 0x70, 0x64,
+	0x61, 0x74, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x2b, 0x0a, 0x11, 0x70, 0x72, 0x6f, 0x76, 0x69,
+	0x64, 0x65, 0x72, 0x5f, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x07, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x10, 0x70, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3e, 0x0a, 0x0b, 0x65, 0x6e, 0x76, 0x69, 0x72, 0x6f, 0x6e, 0x6d,
+	0x65, 0x6e, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1c, 0x2e, 0x6e, 0x61, 0x6b, 0x61,
+	0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x45, 0x6e, 0x76, 0x69,
+	0x72, 0x6f, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x0b, 0x65, 0x6e, 0x76, 0x69, 0x72, 0x6f, 0x6e,
+	0x6d, 0x65, 0x6e, 0x74, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x65, 0x65, 0x6e, 0x5f, 0x62, 0x65, 0x66,
+	0x6f, 0x72, 0x65, 0x18, 0x09, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0a, 0x73, 0x65, 0x65, 0x6e, 0x42,
+	0x65, 0x66, 0x6f, 0x72, 0x65, 0x22, 0x6a, 0x0a, 0x18, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
+	0x65, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x4e, 0x0a, 0x13, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x70,
+	0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1d,
+	0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x56, 0x61, 0x6c, 0x69,
+	0x64, 0x61, 0x74, 0x65, 0x64, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x52, 0x12, 0x76,
 	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65,
-	0x2e, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x52, 0x05, 0x73, 0x74, 0x6f, 0x72, 0x65, 0x12, 0x3f, 0x0a,
+	0x73, 0x22, 0x78, 0x0a, 0x1c, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x53, 0x75, 0x62,
+	0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x58, 0x0a, 0x16, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x73,
+	0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x21, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x56,
+	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x53, 0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70,
+	0x74, 0x69, 0x6f, 0x6e, 0x52, 0x15, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x53,
+	0x75, 0x62, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x9c, 0x04, 0x0a, 0x15,
+	0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x53, 0x75, 0x62, 0x73, 0x63, 0x72, 0x69,
+	0x70, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1d, 0x0a, 0x0a, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
+	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x70, 0x72, 0x6f, 0x64, 0x75,
+	0x63, 0x74, 0x49, 0x64, 0x12, 0x36, 0x0a, 0x17, 0x6f, 0x72, 0x69, 0x67, 0x69, 0x6e, 0x61, 0x6c,
+	0x5f, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x15, 0x6f, 0x72, 0x69, 0x67, 0x69, 0x6e, 0x61, 0x6c, 0x54,
+	0x72, 0x61, 0x6e, 0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x12, 0x2f, 0x0a, 0x05,
+	0x73, 0x74, 0x6f, 0x72, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x19, 0x2e, 0x6e, 0x61,
+	0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x50, 0x72,
+	0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x52, 0x05, 0x73, 0x74, 0x6f, 0x72, 0x65, 0x12, 0x3f, 0x0a,
 	0x0d, 0x70, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x18, 0x04,
 	0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72,
 	0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70,
@@ -9007,111 +9359,108 @@ var file_api_proto_rawDesc = []byte{
 	0x64, 0x61, 0x74, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x2b, 0x0a, 0x11, 0x70, 0x72, 0x6f, 0x76,
 	0x69, 0x64, 0x65, 0x72, 0x5f, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x07, 0x20,
 	0x01, 0x28, 0x09, 0x52, 0x10, 0x70, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4b, 0x0a, 0x0b, 0x65, 0x6e, 0x76, 0x69, 0x72, 0x6f, 0x6e,
-	0x6d, 0x65, 0x6e, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x29, 0x2e, 0x6e, 0x61, 0x6b,
-	0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65,
-	0x64, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x2e, 0x45, 0x6e, 0x76, 0x69, 0x72, 0x6f,
-	0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x0b, 0x65, 0x6e, 0x76, 0x69, 0x72, 0x6f, 0x6e, 0x6d, 0x65,
-	0x6e, 0x74, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x65, 0x65, 0x6e, 0x5f, 0x62, 0x65, 0x66, 0x6f, 0x72,
-	0x65, 0x18, 0x09, 0x20, 0x01, 0x28, 0x08, 0x52, 0x0a, 0x73, 0x65, 0x65, 0x6e, 0x42, 0x65, 0x66,
-	0x6f, 0x72, 0x65, 0x22, 0x4b, 0x0a, 0x05, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x12, 0x13, 0x0a, 0x0f,
-	0x41, 0x50, 0x50, 0x4c, 0x45, 0x5f, 0x41, 0x50, 0x50, 0x5f, 0x53, 0x54, 0x4f, 0x52, 0x45, 0x10,
-	0x00, 0x12, 0x15, 0x0a, 0x11, 0x47, 0x4f, 0x4f, 0x47, 0x4c, 0x45, 0x5f, 0x50, 0x4c, 0x41, 0x59,
-	0x5f, 0x53, 0x54, 0x4f, 0x52, 0x45, 0x10, 0x01, 0x12, 0x16, 0x0a, 0x12, 0x48, 0x55, 0x41, 0x57,
-	0x45, 0x49, 0x5f, 0x41, 0x50, 0x50, 0x5f, 0x47, 0x41, 0x4c, 0x4c, 0x45, 0x52, 0x59, 0x10, 0x02,
-	0x22, 0x37, 0x0a, 0x0b, 0x45, 0x6e, 0x76, 0x69, 0x72, 0x6f, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x12,
-	0x0b, 0x0a, 0x07, 0x55, 0x4e, 0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x00, 0x12, 0x0b, 0x0a, 0x07,
-	0x53, 0x41, 0x4e, 0x44, 0x42, 0x4f, 0x58, 0x10, 0x01, 0x12, 0x0e, 0x0a, 0x0a, 0x50, 0x52, 0x4f,
-	0x44, 0x55, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x10, 0x02, 0x22, 0x6a, 0x0a, 0x18, 0x56, 0x61, 0x6c,
-	0x69, 0x64, 0x61, 0x74, 0x65, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x4e, 0x0a, 0x13, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
-	0x65, 0x64, 0x5f, 0x70, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03,
-	0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e,
-	0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73,
-	0x65, 0x52, 0x12, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x50, 0x75, 0x72, 0x63,
-	0x68, 0x61, 0x73, 0x65, 0x73, 0x22, 0x97, 0x01, 0x0a, 0x0c, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61,
-	0x73, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x4e, 0x0a, 0x13, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61,
-	0x74, 0x65, 0x64, 0x5f, 0x70, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x73, 0x18, 0x01, 0x20,
-	0x03, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69,
-	0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61,
-	0x73, 0x65, 0x52, 0x12, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x50, 0x75, 0x72,
-	0x63, 0x68, 0x61, 0x73, 0x65, 0x73, 0x12, 0x16, 0x0a, 0x06, 0x63, 0x75, 0x72, 0x73, 0x6f, 0x72,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x63, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x12, 0x1f,
-	0x0a, 0x0b, 0x70, 0x72, 0x65, 0x76, 0x5f, 0x63, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x18, 0x03, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x0a, 0x70, 0x72, 0x65, 0x76, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x22,
-	0xbb, 0x02, 0x0a, 0x1d, 0x57, 0x72, 0x69, 0x74, 0x65, 0x4c, 0x65, 0x61, 0x64, 0x65, 0x72, 0x62,
-	0x6f, 0x61, 0x72, 0x64, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x12, 0x25, 0x0a, 0x0e, 0x6c, 0x65, 0x61, 0x64, 0x65, 0x72, 0x62, 0x6f, 0x61, 0x72, 0x64,
-	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x6c, 0x65, 0x61, 0x64, 0x65,
-	0x72, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x49, 0x64, 0x12, 0x58, 0x0a, 0x06, 0x72, 0x65, 0x63, 0x6f,
-	0x72, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x40, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d,
-	0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x57, 0x72, 0x69, 0x74, 0x65, 0x4c, 0x65, 0x61, 0x64, 0x65,
-	0x72, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x2e, 0x4c, 0x65, 0x61, 0x64, 0x65, 0x72, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x52,
-	0x65, 0x63, 0x6f, 0x72, 0x64, 0x57, 0x72, 0x69, 0x74, 0x65, 0x52, 0x06, 0x72, 0x65, 0x63, 0x6f,
-	0x72, 0x64, 0x1a, 0x98, 0x01, 0x0a, 0x16, 0x4c, 0x65, 0x61, 0x64, 0x65, 0x72, 0x62, 0x6f, 0x61,
-	0x72, 0x64, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x57, 0x72, 0x69, 0x74, 0x65, 0x12, 0x14, 0x0a,
-	0x05, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x73, 0x63,
-	0x6f, 0x72, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x73, 0x75, 0x62, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x73, 0x75, 0x62, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x12,
-	0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x03, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x30, 0x0a, 0x08, 0x6f,
-	0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x14, 0x2e,
-	0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x4f, 0x70, 0x65, 0x72, 0x61,
-	0x74, 0x6f, 0x72, 0x52, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x84, 0x02,
-	0x0a, 0x12, 0x57, 0x72, 0x69, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x61, 0x67, 0x65, 0x4f, 0x62,
-	0x6a, 0x65, 0x63, 0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x63, 0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69,
-	0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x63, 0x6f, 0x6c, 0x6c, 0x65, 0x63,
-	0x74, 0x69, 0x6f, 0x6e, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
-	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x18, 0x0a, 0x07,
-	0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x76,
-	0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x44, 0x0a, 0x0f, 0x70, 0x65, 0x72, 0x6d, 0x69, 0x73,
-	0x73, 0x69, 0x6f, 0x6e, 0x5f, 0x72, 0x65, 0x61, 0x64, 0x18, 0x05, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x1b, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
-	0x66, 0x2e, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x0e, 0x70, 0x65,
-	0x72, 0x6d, 0x69, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x61, 0x64, 0x12, 0x46, 0x0a, 0x10,
-	0x70, 0x65, 0x72, 0x6d, 0x69, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x5f, 0x77, 0x72, 0x69, 0x74, 0x65,
-	0x18, 0x06, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x56, 0x61,
-	0x6c, 0x75, 0x65, 0x52, 0x0f, 0x70, 0x65, 0x72, 0x6d, 0x69, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x57,
-	0x72, 0x69, 0x74, 0x65, 0x22, 0x56, 0x0a, 0x1a, 0x57, 0x72, 0x69, 0x74, 0x65, 0x53, 0x74, 0x6f,
-	0x72, 0x61, 0x67, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x38, 0x0a, 0x07, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x18, 0x01, 0x20,
-	0x03, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69,
-	0x2e, 0x57, 0x72, 0x69, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x61, 0x67, 0x65, 0x4f, 0x62, 0x6a,
-	0x65, 0x63, 0x74, 0x52, 0x07, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x22, 0xb5, 0x02, 0x0a,
-	0x1c, 0x57, 0x72, 0x69, 0x74, 0x65, 0x54, 0x6f, 0x75, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x6e, 0x74,
-	0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x23, 0x0a,
-	0x0d, 0x74, 0x6f, 0x75, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x6e, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x74, 0x6f, 0x75, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x6e, 0x74,
-	0x49, 0x64, 0x12, 0x56, 0x0a, 0x06, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x3e, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e,
-	0x57, 0x72, 0x69, 0x74, 0x65, 0x54, 0x6f, 0x75, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x6e, 0x74, 0x52,
-	0x65, 0x63, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x2e, 0x54, 0x6f, 0x75,
-	0x72, 0x6e, 0x61, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x57, 0x72, 0x69,
-	0x74, 0x65, 0x52, 0x06, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x1a, 0x97, 0x01, 0x0a, 0x15, 0x54,
-	0x6f, 0x75, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x57,
-	0x72, 0x69, 0x74, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x03, 0x52, 0x05, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x73, 0x75,
-	0x62, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x73, 0x75,
-	0x62, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0x12, 0x30, 0x0a, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x04,
-	0x20, 0x01, 0x28, 0x0e, 0x32, 0x14, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70,
-	0x69, 0x2e, 0x4f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x08, 0x6f, 0x70, 0x65, 0x72,
-	0x61, 0x74, 0x6f, 0x72, 0x2a, 0x4c, 0x0a, 0x08, 0x4f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72,
-	0x12, 0x0f, 0x0a, 0x0b, 0x4e, 0x4f, 0x5f, 0x4f, 0x56, 0x45, 0x52, 0x52, 0x49, 0x44, 0x45, 0x10,
-	0x00, 0x12, 0x08, 0x0a, 0x04, 0x42, 0x45, 0x53, 0x54, 0x10, 0x01, 0x12, 0x07, 0x0a, 0x03, 0x53,
-	0x45, 0x54, 0x10, 0x02, 0x12, 0x0d, 0x0a, 0x09, 0x49, 0x4e, 0x43, 0x52, 0x45, 0x4d, 0x45, 0x4e,
-	0x54, 0x10, 0x03, 0x12, 0x0d, 0x0a, 0x09, 0x44, 0x45, 0x43, 0x52, 0x45, 0x4d, 0x45, 0x4e, 0x54,
-	0x10, 0x04, 0x42, 0x63, 0x0a, 0x19, 0x63, 0x6f, 0x6d, 0x2e, 0x68, 0x65, 0x72, 0x6f, 0x69, 0x63,
-	0x6c, 0x61, 0x62, 0x73, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x42,
-	0x09, 0x4e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x41, 0x70, 0x69, 0x50, 0x01, 0x5a, 0x27, 0x67, 0x69,
-	0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x68, 0x65, 0x72, 0x6f, 0x69, 0x63, 0x6c,
-	0x61, 0x62, 0x73, 0x2f, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2d, 0x63, 0x6f, 0x6d, 0x6d, 0x6f,
-	0x6e, 0x2f, 0x61, 0x70, 0x69, 0xaa, 0x02, 0x0f, 0x4e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x50,
-	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3e, 0x0a, 0x0b, 0x65, 0x6e, 0x76, 0x69, 0x72, 0x6f, 0x6e,
+	0x6d, 0x65, 0x6e, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x1c, 0x2e, 0x6e, 0x61, 0x6b,
+	0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x45, 0x6e, 0x76,
+	0x69, 0x72, 0x6f, 0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x0b, 0x65, 0x6e, 0x76, 0x69, 0x72, 0x6f,
+	0x6e, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x18,
+	0x09, 0x20, 0x01, 0x28, 0x08, 0x52, 0x06, 0x61, 0x63, 0x74, 0x69, 0x76, 0x65, 0x12, 0x3b, 0x0a,
+	0x0b, 0x65, 0x78, 0x70, 0x69, 0x72, 0x79, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x18, 0x0a, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x0a,
+	0x65, 0x78, 0x70, 0x69, 0x72, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x22, 0x97, 0x01, 0x0a, 0x0c, 0x50,
+	0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x4e, 0x0a, 0x13, 0x76,
+	0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x70, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73,
+	0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d,
+	0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x56, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x64, 0x50,
+	0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x52, 0x12, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74,
+	0x65, 0x64, 0x50, 0x75, 0x72, 0x63, 0x68, 0x61, 0x73, 0x65, 0x73, 0x12, 0x16, 0x0a, 0x06, 0x63,
+	0x75, 0x72, 0x73, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x63, 0x75, 0x72,
+	0x73, 0x6f, 0x72, 0x12, 0x1f, 0x0a, 0x0b, 0x70, 0x72, 0x65, 0x76, 0x5f, 0x63, 0x75, 0x72, 0x73,
+	0x6f, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x70, 0x72, 0x65, 0x76, 0x43, 0x75,
+	0x72, 0x73, 0x6f, 0x72, 0x22, 0xbb, 0x02, 0x0a, 0x1d, 0x57, 0x72, 0x69, 0x74, 0x65, 0x4c, 0x65,
+	0x61, 0x64, 0x65, 0x72, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x25, 0x0a, 0x0e, 0x6c, 0x65, 0x61, 0x64, 0x65, 0x72,
+	0x62, 0x6f, 0x61, 0x72, 0x64, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d,
+	0x6c, 0x65, 0x61, 0x64, 0x65, 0x72, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x49, 0x64, 0x12, 0x58, 0x0a,
+	0x06, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x40, 0x2e,
+	0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x57, 0x72, 0x69, 0x74, 0x65,
+	0x4c, 0x65, 0x61, 0x64, 0x65, 0x72, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x52, 0x65, 0x63, 0x6f, 0x72,
+	0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x2e, 0x4c, 0x65, 0x61, 0x64, 0x65, 0x72, 0x62,
+	0x6f, 0x61, 0x72, 0x64, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x57, 0x72, 0x69, 0x74, 0x65, 0x52,
+	0x06, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x1a, 0x98, 0x01, 0x0a, 0x16, 0x4c, 0x65, 0x61, 0x64,
+	0x65, 0x72, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x57, 0x72, 0x69,
+	0x74, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x03, 0x52, 0x05, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x73, 0x75, 0x62, 0x73,
+	0x63, 0x6f, 0x72, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x73, 0x75, 0x62, 0x73,
+	0x63, 0x6f, 0x72, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x12, 0x30, 0x0a, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x04, 0x20, 0x01,
+	0x28, 0x0e, 0x32, 0x14, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e,
+	0x4f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74,
+	0x6f, 0x72, 0x22, 0x84, 0x02, 0x0a, 0x12, 0x57, 0x72, 0x69, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72,
+	0x61, 0x67, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x1e, 0x0a, 0x0a, 0x63, 0x6f, 0x6c,
+	0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x63,
+	0x6f, 0x6c, 0x6c, 0x65, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x12, 0x18, 0x0a, 0x07, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x18, 0x04, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x07, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e, 0x12, 0x44, 0x0a, 0x0f, 0x70,
+	0x65, 0x72, 0x6d, 0x69, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x5f, 0x72, 0x65, 0x61, 0x64, 0x18, 0x05,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x49, 0x6e, 0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75,
+	0x65, 0x52, 0x0e, 0x70, 0x65, 0x72, 0x6d, 0x69, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x61,
+	0x64, 0x12, 0x46, 0x0a, 0x10, 0x70, 0x65, 0x72, 0x6d, 0x69, 0x73, 0x73, 0x69, 0x6f, 0x6e, 0x5f,
+	0x77, 0x72, 0x69, 0x74, 0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1b, 0x2e, 0x67, 0x6f,
+	0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x49, 0x6e,
+	0x74, 0x33, 0x32, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x52, 0x0f, 0x70, 0x65, 0x72, 0x6d, 0x69, 0x73,
+	0x73, 0x69, 0x6f, 0x6e, 0x57, 0x72, 0x69, 0x74, 0x65, 0x22, 0x56, 0x0a, 0x1a, 0x57, 0x72, 0x69,
+	0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x61, 0x67, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x38, 0x0a, 0x07, 0x6f, 0x62, 0x6a, 0x65, 0x63,
+	0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1e, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d,
+	0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x57, 0x72, 0x69, 0x74, 0x65, 0x53, 0x74, 0x6f, 0x72, 0x61,
+	0x67, 0x65, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x07, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74,
+	0x73, 0x22, 0xb5, 0x02, 0x0a, 0x1c, 0x57, 0x72, 0x69, 0x74, 0x65, 0x54, 0x6f, 0x75, 0x72, 0x6e,
+	0x61, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x23, 0x0a, 0x0d, 0x74, 0x6f, 0x75, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x6e, 0x74,
+	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x74, 0x6f, 0x75, 0x72, 0x6e,
+	0x61, 0x6d, 0x65, 0x6e, 0x74, 0x49, 0x64, 0x12, 0x56, 0x0a, 0x06, 0x72, 0x65, 0x63, 0x6f, 0x72,
+	0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x3e, 0x2e, 0x6e, 0x61, 0x6b, 0x61, 0x6d, 0x61,
+	0x2e, 0x61, 0x70, 0x69, 0x2e, 0x57, 0x72, 0x69, 0x74, 0x65, 0x54, 0x6f, 0x75, 0x72, 0x6e, 0x61,
+	0x6d, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x2e, 0x54, 0x6f, 0x75, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x65, 0x63, 0x6f,
+	0x72, 0x64, 0x57, 0x72, 0x69, 0x74, 0x65, 0x52, 0x06, 0x72, 0x65, 0x63, 0x6f, 0x72, 0x64, 0x1a,
+	0x97, 0x01, 0x0a, 0x15, 0x54, 0x6f, 0x75, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x6e, 0x74, 0x52, 0x65,
+	0x63, 0x6f, 0x72, 0x64, 0x57, 0x72, 0x69, 0x74, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x73, 0x63, 0x6f,
+	0x72, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x12,
+	0x1a, 0x0a, 0x08, 0x73, 0x75, 0x62, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x03, 0x52, 0x08, 0x73, 0x75, 0x62, 0x73, 0x63, 0x6f, 0x72, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x6d,
+	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x6d,
+	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x30, 0x0a, 0x08, 0x6f, 0x70, 0x65, 0x72, 0x61,
+	0x74, 0x6f, 0x72, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x14, 0x2e, 0x6e, 0x61, 0x6b, 0x61,
+	0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x2e, 0x4f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x52,
+	0x08, 0x6f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x2a, 0x53, 0x0a, 0x0d, 0x53, 0x74, 0x6f,
+	0x72, 0x65, 0x50, 0x72, 0x6f, 0x76, 0x69, 0x64, 0x65, 0x72, 0x12, 0x13, 0x0a, 0x0f, 0x41, 0x50,
+	0x50, 0x4c, 0x45, 0x5f, 0x41, 0x50, 0x50, 0x5f, 0x53, 0x54, 0x4f, 0x52, 0x45, 0x10, 0x00, 0x12,
+	0x15, 0x0a, 0x11, 0x47, 0x4f, 0x4f, 0x47, 0x4c, 0x45, 0x5f, 0x50, 0x4c, 0x41, 0x59, 0x5f, 0x53,
+	0x54, 0x4f, 0x52, 0x45, 0x10, 0x01, 0x12, 0x16, 0x0a, 0x12, 0x48, 0x55, 0x41, 0x57, 0x45, 0x49,
+	0x5f, 0x41, 0x50, 0x50, 0x5f, 0x47, 0x41, 0x4c, 0x4c, 0x45, 0x52, 0x59, 0x10, 0x02, 0x2a, 0x3c,
+	0x0a, 0x10, 0x53, 0x74, 0x6f, 0x72, 0x65, 0x45, 0x6e, 0x76, 0x69, 0x72, 0x6f, 0x6e, 0x6d, 0x65,
+	0x6e, 0x74, 0x12, 0x0b, 0x0a, 0x07, 0x55, 0x4e, 0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x00, 0x12,
+	0x0b, 0x0a, 0x07, 0x53, 0x41, 0x4e, 0x44, 0x42, 0x4f, 0x58, 0x10, 0x01, 0x12, 0x0e, 0x0a, 0x0a,
+	0x50, 0x52, 0x4f, 0x44, 0x55, 0x43, 0x54, 0x49, 0x4f, 0x4e, 0x10, 0x02, 0x2a, 0x4c, 0x0a, 0x08,
+	0x4f, 0x70, 0x65, 0x72, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x0f, 0x0a, 0x0b, 0x4e, 0x4f, 0x5f, 0x4f,
+	0x56, 0x45, 0x52, 0x52, 0x49, 0x44, 0x45, 0x10, 0x00, 0x12, 0x08, 0x0a, 0x04, 0x42, 0x45, 0x53,
+	0x54, 0x10, 0x01, 0x12, 0x07, 0x0a, 0x03, 0x53, 0x45, 0x54, 0x10, 0x02, 0x12, 0x0d, 0x0a, 0x09,
+	0x49, 0x4e, 0x43, 0x52, 0x45, 0x4d, 0x45, 0x4e, 0x54, 0x10, 0x03, 0x12, 0x0d, 0x0a, 0x09, 0x44,
+	0x45, 0x43, 0x52, 0x45, 0x4d, 0x45, 0x4e, 0x54, 0x10, 0x04, 0x42, 0x63, 0x0a, 0x19, 0x63, 0x6f,
+	0x6d, 0x2e, 0x68, 0x65, 0x72, 0x6f, 0x69, 0x63, 0x6c, 0x61, 0x62, 0x73, 0x2e, 0x6e, 0x61, 0x6b,
+	0x61, 0x6d, 0x61, 0x2e, 0x61, 0x70, 0x69, 0x42, 0x09, 0x4e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x41,
+	0x70, 0x69, 0x50, 0x01, 0x5a, 0x27, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
+	0x2f, 0x68, 0x65, 0x72, 0x6f, 0x69, 0x63, 0x6c, 0x61, 0x62, 0x73, 0x2f, 0x6e, 0x61, 0x6b, 0x61,
+	0x6d, 0x61, 0x2d, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2f, 0x61, 0x70, 0x69, 0xaa, 0x02, 0x0f,
+	0x4e, 0x61, 0x6b, 0x61, 0x6d, 0x61, 0x2e, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -9127,14 +9476,14 @@ func file_api_proto_rawDescGZIP() []byte {
 }
 
 var file_api_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
-var file_api_proto_msgTypes = make([]protoimpl.MessageInfo, 116)
+var file_api_proto_msgTypes = make([]protoimpl.MessageInfo, 120)
 var file_api_proto_goTypes = []interface{}{
-	(Operator)(0),                                    // 0: nakama.api.Operator
-	(Friend_State)(0),                                // 1: nakama.api.Friend.State
-	(GroupUserList_GroupUser_State)(0),               // 2: nakama.api.GroupUserList.GroupUser.State
-	(UserGroupList_UserGroup_State)(0),               // 3: nakama.api.UserGroupList.UserGroup.State
-	(ValidatedPurchase_Store)(0),                     // 4: nakama.api.ValidatedPurchase.Store
-	(ValidatedPurchase_Environment)(0),               // 5: nakama.api.ValidatedPurchase.Environment
+	(StoreProvider)(0),                               // 0: nakama.api.StoreProvider
+	(StoreEnvironment)(0),                            // 1: nakama.api.StoreEnvironment
+	(Operator)(0),                                    // 2: nakama.api.Operator
+	(Friend_State)(0),                                // 3: nakama.api.Friend.State
+	(GroupUserList_GroupUser_State)(0),               // 4: nakama.api.GroupUserList.GroupUser.State
+	(UserGroupList_UserGroup_State)(0),               // 5: nakama.api.UserGroupList.UserGroup.State
 	(*Account)(nil),                                  // 6: nakama.api.Account
 	(*AccountRefresh)(nil),                           // 7: nakama.api.AccountRefresh
 	(*AccountApple)(nil),                             // 8: nakama.api.AccountApple
@@ -9226,198 +9575,211 @@ var file_api_proto_goTypes = []interface{}{
 	(*UserGroupList)(nil),                            // 94: nakama.api.UserGroupList
 	(*Users)(nil),                                    // 95: nakama.api.Users
 	(*ValidatePurchaseAppleRequest)(nil),             // 96: nakama.api.ValidatePurchaseAppleRequest
-	(*ValidatePurchaseGoogleRequest)(nil),            // 97: nakama.api.ValidatePurchaseGoogleRequest
-	(*ValidatePurchaseHuaweiRequest)(nil),            // 98: nakama.api.ValidatePurchaseHuaweiRequest
-	(*ValidatedPurchase)(nil),                        // 99: nakama.api.ValidatedPurchase
-	(*ValidatePurchaseResponse)(nil),                 // 100: nakama.api.ValidatePurchaseResponse
-	(*PurchaseList)(nil),                             // 101: nakama.api.PurchaseList
-	(*WriteLeaderboardRecordRequest)(nil),            // 102: nakama.api.WriteLeaderboardRecordRequest
-	(*WriteStorageObject)(nil),                       // 103: nakama.api.WriteStorageObject
-	(*WriteStorageObjectsRequest)(nil),               // 104: nakama.api.WriteStorageObjectsRequest
-	(*WriteTournamentRecordRequest)(nil),             // 105: nakama.api.WriteTournamentRecordRequest
-	nil,                                              // 106: nakama.api.AccountRefresh.VarsEntry
-	nil,                                              // 107: nakama.api.AccountApple.VarsEntry
-	nil,                                              // 108: nakama.api.AccountCustom.VarsEntry
-	nil,                                              // 109: nakama.api.AccountDevice.VarsEntry
-	nil,                                              // 110: nakama.api.AccountEmail.VarsEntry
-	nil,                                              // 111: nakama.api.AccountFacebook.VarsEntry
-	nil,                                              // 112: nakama.api.AccountFacebookInstantGame.VarsEntry
-	nil,                                              // 113: nakama.api.AccountGameCenter.VarsEntry
-	nil,                                              // 114: nakama.api.AccountGoogle.VarsEntry
-	nil,                                              // 115: nakama.api.AccountSteam.VarsEntry
-	nil,                                              // 116: nakama.api.SessionRefreshRequest.VarsEntry
-	nil,                                              // 117: nakama.api.Event.PropertiesEntry
-	(*GroupUserList_GroupUser)(nil),                  // 118: nakama.api.GroupUserList.GroupUser
-	(*UserGroupList_UserGroup)(nil),                  // 119: nakama.api.UserGroupList.UserGroup
-	(*WriteLeaderboardRecordRequest_LeaderboardRecordWrite)(nil), // 120: nakama.api.WriteLeaderboardRecordRequest.LeaderboardRecordWrite
-	(*WriteTournamentRecordRequest_TournamentRecordWrite)(nil),   // 121: nakama.api.WriteTournamentRecordRequest.TournamentRecordWrite
-	(*timestamppb.Timestamp)(nil),                                // 122: google.protobuf.Timestamp
-	(*wrapperspb.BoolValue)(nil),                                 // 123: google.protobuf.BoolValue
-	(*wrapperspb.Int32Value)(nil),                                // 124: google.protobuf.Int32Value
-	(*wrapperspb.StringValue)(nil),                               // 125: google.protobuf.StringValue
-	(*wrapperspb.UInt32Value)(nil),                               // 126: google.protobuf.UInt32Value
-	(*wrapperspb.Int64Value)(nil),                                // 127: google.protobuf.Int64Value
+	(*ValidateSubscriptionAppleRequest)(nil),         // 97: nakama.api.ValidateSubscriptionAppleRequest
+	(*ValidatePurchaseGoogleRequest)(nil),            // 98: nakama.api.ValidatePurchaseGoogleRequest
+	(*ValidateSubscriptionGoogleRequest)(nil),        // 99: nakama.api.ValidateSubscriptionGoogleRequest
+	(*ValidatePurchaseHuaweiRequest)(nil),            // 100: nakama.api.ValidatePurchaseHuaweiRequest
+	(*ValidatedPurchase)(nil),                        // 101: nakama.api.ValidatedPurchase
+	(*ValidatePurchaseResponse)(nil),                 // 102: nakama.api.ValidatePurchaseResponse
+	(*ValidateSubscriptionResponse)(nil),             // 103: nakama.api.ValidateSubscriptionResponse
+	(*ValidatedSubscription)(nil),                    // 104: nakama.api.ValidatedSubscription
+	(*PurchaseList)(nil),                             // 105: nakama.api.PurchaseList
+	(*WriteLeaderboardRecordRequest)(nil),            // 106: nakama.api.WriteLeaderboardRecordRequest
+	(*WriteStorageObject)(nil),                       // 107: nakama.api.WriteStorageObject
+	(*WriteStorageObjectsRequest)(nil),               // 108: nakama.api.WriteStorageObjectsRequest
+	(*WriteTournamentRecordRequest)(nil),             // 109: nakama.api.WriteTournamentRecordRequest
+	nil,                                              // 110: nakama.api.AccountRefresh.VarsEntry
+	nil,                                              // 111: nakama.api.AccountApple.VarsEntry
+	nil,                                              // 112: nakama.api.AccountCustom.VarsEntry
+	nil,                                              // 113: nakama.api.AccountDevice.VarsEntry
+	nil,                                              // 114: nakama.api.AccountEmail.VarsEntry
+	nil,                                              // 115: nakama.api.AccountFacebook.VarsEntry
+	nil,                                              // 116: nakama.api.AccountFacebookInstantGame.VarsEntry
+	nil,                                              // 117: nakama.api.AccountGameCenter.VarsEntry
+	nil,                                              // 118: nakama.api.AccountGoogle.VarsEntry
+	nil,                                              // 119: nakama.api.AccountSteam.VarsEntry
+	nil,                                              // 120: nakama.api.SessionRefreshRequest.VarsEntry
+	nil,                                              // 121: nakama.api.Event.PropertiesEntry
+	(*GroupUserList_GroupUser)(nil),                  // 122: nakama.api.GroupUserList.GroupUser
+	(*UserGroupList_UserGroup)(nil),                  // 123: nakama.api.UserGroupList.UserGroup
+	(*WriteLeaderboardRecordRequest_LeaderboardRecordWrite)(nil), // 124: nakama.api.WriteLeaderboardRecordRequest.LeaderboardRecordWrite
+	(*WriteTournamentRecordRequest_TournamentRecordWrite)(nil),   // 125: nakama.api.WriteTournamentRecordRequest.TournamentRecordWrite
+	(*timestamppb.Timestamp)(nil),                                // 126: google.protobuf.Timestamp
+	(*wrapperspb.BoolValue)(nil),                                 // 127: google.protobuf.BoolValue
+	(*wrapperspb.Int32Value)(nil),                                // 128: google.protobuf.Int32Value
+	(*wrapperspb.StringValue)(nil),                               // 129: google.protobuf.StringValue
+	(*wrapperspb.UInt32Value)(nil),                               // 130: google.protobuf.UInt32Value
+	(*wrapperspb.Int64Value)(nil),                                // 131: google.protobuf.Int64Value
 }
 var file_api_proto_depIdxs = []int32{
 	93,  // 0: nakama.api.Account.user:type_name -> nakama.api.User
 	10,  // 1: nakama.api.Account.devices:type_name -> nakama.api.AccountDevice
-	122, // 2: nakama.api.Account.verify_time:type_name -> google.protobuf.Timestamp
-	122, // 3: nakama.api.Account.disable_time:type_name -> google.protobuf.Timestamp
-	106, // 4: nakama.api.AccountRefresh.vars:type_name -> nakama.api.AccountRefresh.VarsEntry
-	107, // 5: nakama.api.AccountApple.vars:type_name -> nakama.api.AccountApple.VarsEntry
-	108, // 6: nakama.api.AccountCustom.vars:type_name -> nakama.api.AccountCustom.VarsEntry
-	109, // 7: nakama.api.AccountDevice.vars:type_name -> nakama.api.AccountDevice.VarsEntry
-	110, // 8: nakama.api.AccountEmail.vars:type_name -> nakama.api.AccountEmail.VarsEntry
-	111, // 9: nakama.api.AccountFacebook.vars:type_name -> nakama.api.AccountFacebook.VarsEntry
-	112, // 10: nakama.api.AccountFacebookInstantGame.vars:type_name -> nakama.api.AccountFacebookInstantGame.VarsEntry
-	113, // 11: nakama.api.AccountGameCenter.vars:type_name -> nakama.api.AccountGameCenter.VarsEntry
-	114, // 12: nakama.api.AccountGoogle.vars:type_name -> nakama.api.AccountGoogle.VarsEntry
-	115, // 13: nakama.api.AccountSteam.vars:type_name -> nakama.api.AccountSteam.VarsEntry
-	116, // 14: nakama.api.SessionRefreshRequest.vars:type_name -> nakama.api.SessionRefreshRequest.VarsEntry
+	126, // 2: nakama.api.Account.verify_time:type_name -> google.protobuf.Timestamp
+	126, // 3: nakama.api.Account.disable_time:type_name -> google.protobuf.Timestamp
+	110, // 4: nakama.api.AccountRefresh.vars:type_name -> nakama.api.AccountRefresh.VarsEntry
+	111, // 5: nakama.api.AccountApple.vars:type_name -> nakama.api.AccountApple.VarsEntry
+	112, // 6: nakama.api.AccountCustom.vars:type_name -> nakama.api.AccountCustom.VarsEntry
+	113, // 7: nakama.api.AccountDevice.vars:type_name -> nakama.api.AccountDevice.VarsEntry
+	114, // 8: nakama.api.AccountEmail.vars:type_name -> nakama.api.AccountEmail.VarsEntry
+	115, // 9: nakama.api.AccountFacebook.vars:type_name -> nakama.api.AccountFacebook.VarsEntry
+	116, // 10: nakama.api.AccountFacebookInstantGame.vars:type_name -> nakama.api.AccountFacebookInstantGame.VarsEntry
+	117, // 11: nakama.api.AccountGameCenter.vars:type_name -> nakama.api.AccountGameCenter.VarsEntry
+	118, // 12: nakama.api.AccountGoogle.vars:type_name -> nakama.api.AccountGoogle.VarsEntry
+	119, // 13: nakama.api.AccountSteam.vars:type_name -> nakama.api.AccountSteam.VarsEntry
+	120, // 14: nakama.api.SessionRefreshRequest.vars:type_name -> nakama.api.SessionRefreshRequest.VarsEntry
 	8,   // 15: nakama.api.AuthenticateAppleRequest.account:type_name -> nakama.api.AccountApple
-	123, // 16: nakama.api.AuthenticateAppleRequest.create:type_name -> google.protobuf.BoolValue
+	127, // 16: nakama.api.AuthenticateAppleRequest.create:type_name -> google.protobuf.BoolValue
 	9,   // 17: nakama.api.AuthenticateCustomRequest.account:type_name -> nakama.api.AccountCustom
-	123, // 18: nakama.api.AuthenticateCustomRequest.create:type_name -> google.protobuf.BoolValue
+	127, // 18: nakama.api.AuthenticateCustomRequest.create:type_name -> google.protobuf.BoolValue
 	10,  // 19: nakama.api.AuthenticateDeviceRequest.account:type_name -> nakama.api.AccountDevice
-	123, // 20: nakama.api.AuthenticateDeviceRequest.create:type_name -> google.protobuf.BoolValue
+	127, // 20: nakama.api.AuthenticateDeviceRequest.create:type_name -> google.protobuf.BoolValue
 	11,  // 21: nakama.api.AuthenticateEmailRequest.account:type_name -> nakama.api.AccountEmail
-	123, // 22: nakama.api.AuthenticateEmailRequest.create:type_name -> google.protobuf.BoolValue
+	127, // 22: nakama.api.AuthenticateEmailRequest.create:type_name -> google.protobuf.BoolValue
 	12,  // 23: nakama.api.AuthenticateFacebookRequest.account:type_name -> nakama.api.AccountFacebook
-	123, // 24: nakama.api.AuthenticateFacebookRequest.create:type_name -> google.protobuf.BoolValue
-	123, // 25: nakama.api.AuthenticateFacebookRequest.sync:type_name -> google.protobuf.BoolValue
+	127, // 24: nakama.api.AuthenticateFacebookRequest.create:type_name -> google.protobuf.BoolValue
+	127, // 25: nakama.api.AuthenticateFacebookRequest.sync:type_name -> google.protobuf.BoolValue
 	13,  // 26: nakama.api.AuthenticateFacebookInstantGameRequest.account:type_name -> nakama.api.AccountFacebookInstantGame
-	123, // 27: nakama.api.AuthenticateFacebookInstantGameRequest.create:type_name -> google.protobuf.BoolValue
+	127, // 27: nakama.api.AuthenticateFacebookInstantGameRequest.create:type_name -> google.protobuf.BoolValue
 	14,  // 28: nakama.api.AuthenticateGameCenterRequest.account:type_name -> nakama.api.AccountGameCenter
-	123, // 29: nakama.api.AuthenticateGameCenterRequest.create:type_name -> google.protobuf.BoolValue
+	127, // 29: nakama.api.AuthenticateGameCenterRequest.create:type_name -> google.protobuf.BoolValue
 	15,  // 30: nakama.api.AuthenticateGoogleRequest.account:type_name -> nakama.api.AccountGoogle
-	123, // 31: nakama.api.AuthenticateGoogleRequest.create:type_name -> google.protobuf.BoolValue
+	127, // 31: nakama.api.AuthenticateGoogleRequest.create:type_name -> google.protobuf.BoolValue
 	16,  // 32: nakama.api.AuthenticateSteamRequest.account:type_name -> nakama.api.AccountSteam
-	123, // 33: nakama.api.AuthenticateSteamRequest.create:type_name -> google.protobuf.BoolValue
-	123, // 34: nakama.api.AuthenticateSteamRequest.sync:type_name -> google.protobuf.BoolValue
-	124, // 35: nakama.api.ChannelMessage.code:type_name -> google.protobuf.Int32Value
-	122, // 36: nakama.api.ChannelMessage.create_time:type_name -> google.protobuf.Timestamp
-	122, // 37: nakama.api.ChannelMessage.update_time:type_name -> google.protobuf.Timestamp
-	123, // 38: nakama.api.ChannelMessage.persistent:type_name -> google.protobuf.BoolValue
+	127, // 33: nakama.api.AuthenticateSteamRequest.create:type_name -> google.protobuf.BoolValue
+	127, // 34: nakama.api.AuthenticateSteamRequest.sync:type_name -> google.protobuf.BoolValue
+	128, // 35: nakama.api.ChannelMessage.code:type_name -> google.protobuf.Int32Value
+	126, // 36: nakama.api.ChannelMessage.create_time:type_name -> google.protobuf.Timestamp
+	126, // 37: nakama.api.ChannelMessage.update_time:type_name -> google.protobuf.Timestamp
+	127, // 38: nakama.api.ChannelMessage.persistent:type_name -> google.protobuf.BoolValue
 	32,  // 39: nakama.api.ChannelMessageList.messages:type_name -> nakama.api.ChannelMessage
 	39,  // 40: nakama.api.DeleteStorageObjectsRequest.object_ids:type_name -> nakama.api.DeleteStorageObjectId
-	117, // 41: nakama.api.Event.properties:type_name -> nakama.api.Event.PropertiesEntry
-	122, // 42: nakama.api.Event.timestamp:type_name -> google.protobuf.Timestamp
+	121, // 41: nakama.api.Event.properties:type_name -> nakama.api.Event.PropertiesEntry
+	126, // 42: nakama.api.Event.timestamp:type_name -> google.protobuf.Timestamp
 	93,  // 43: nakama.api.Friend.user:type_name -> nakama.api.User
-	124, // 44: nakama.api.Friend.state:type_name -> google.protobuf.Int32Value
-	122, // 45: nakama.api.Friend.update_time:type_name -> google.protobuf.Timestamp
+	128, // 44: nakama.api.Friend.state:type_name -> google.protobuf.Int32Value
+	126, // 45: nakama.api.Friend.update_time:type_name -> google.protobuf.Timestamp
 	42,  // 46: nakama.api.FriendList.friends:type_name -> nakama.api.Friend
-	123, // 47: nakama.api.Group.open:type_name -> google.protobuf.BoolValue
-	122, // 48: nakama.api.Group.create_time:type_name -> google.protobuf.Timestamp
-	122, // 49: nakama.api.Group.update_time:type_name -> google.protobuf.Timestamp
+	127, // 47: nakama.api.Group.open:type_name -> google.protobuf.BoolValue
+	126, // 48: nakama.api.Group.create_time:type_name -> google.protobuf.Timestamp
+	126, // 49: nakama.api.Group.update_time:type_name -> google.protobuf.Timestamp
 	45,  // 50: nakama.api.GroupList.groups:type_name -> nakama.api.Group
-	118, // 51: nakama.api.GroupUserList.group_users:type_name -> nakama.api.GroupUserList.GroupUser
+	122, // 51: nakama.api.GroupUserList.group_users:type_name -> nakama.api.GroupUserList.GroupUser
 	12,  // 52: nakama.api.ImportFacebookFriendsRequest.account:type_name -> nakama.api.AccountFacebook
-	123, // 53: nakama.api.ImportFacebookFriendsRequest.reset:type_name -> google.protobuf.BoolValue
+	127, // 53: nakama.api.ImportFacebookFriendsRequest.reset:type_name -> google.protobuf.BoolValue
 	16,  // 54: nakama.api.ImportSteamFriendsRequest.account:type_name -> nakama.api.AccountSteam
-	123, // 55: nakama.api.ImportSteamFriendsRequest.reset:type_name -> google.protobuf.BoolValue
-	0,   // 56: nakama.api.Leaderboard.operator:type_name -> nakama.api.Operator
-	122, // 57: nakama.api.Leaderboard.create_time:type_name -> google.protobuf.Timestamp
+	127, // 55: nakama.api.ImportSteamFriendsRequest.reset:type_name -> google.protobuf.BoolValue
+	2,   // 56: nakama.api.Leaderboard.operator:type_name -> nakama.api.Operator
+	126, // 57: nakama.api.Leaderboard.create_time:type_name -> google.protobuf.Timestamp
 	53,  // 58: nakama.api.LeaderboardList.leaderboards:type_name -> nakama.api.Leaderboard
-	125, // 59: nakama.api.LeaderboardRecord.username:type_name -> google.protobuf.StringValue
-	122, // 60: nakama.api.LeaderboardRecord.create_time:type_name -> google.protobuf.Timestamp
-	122, // 61: nakama.api.LeaderboardRecord.update_time:type_name -> google.protobuf.Timestamp
-	122, // 62: nakama.api.LeaderboardRecord.expiry_time:type_name -> google.protobuf.Timestamp
+	129, // 59: nakama.api.LeaderboardRecord.username:type_name -> google.protobuf.StringValue
+	126, // 60: nakama.api.LeaderboardRecord.create_time:type_name -> google.protobuf.Timestamp
+	126, // 61: nakama.api.LeaderboardRecord.update_time:type_name -> google.protobuf.Timestamp
+	126, // 62: nakama.api.LeaderboardRecord.expiry_time:type_name -> google.protobuf.Timestamp
 	55,  // 63: nakama.api.LeaderboardRecordList.records:type_name -> nakama.api.LeaderboardRecord
 	55,  // 64: nakama.api.LeaderboardRecordList.owner_records:type_name -> nakama.api.LeaderboardRecord
 	12,  // 65: nakama.api.LinkFacebookRequest.account:type_name -> nakama.api.AccountFacebook
-	123, // 66: nakama.api.LinkFacebookRequest.sync:type_name -> google.protobuf.BoolValue
+	127, // 66: nakama.api.LinkFacebookRequest.sync:type_name -> google.protobuf.BoolValue
 	16,  // 67: nakama.api.LinkSteamRequest.account:type_name -> nakama.api.AccountSteam
-	123, // 68: nakama.api.LinkSteamRequest.sync:type_name -> google.protobuf.BoolValue
-	124, // 69: nakama.api.ListChannelMessagesRequest.limit:type_name -> google.protobuf.Int32Value
-	123, // 70: nakama.api.ListChannelMessagesRequest.forward:type_name -> google.protobuf.BoolValue
-	124, // 71: nakama.api.ListFriendsRequest.limit:type_name -> google.protobuf.Int32Value
-	124, // 72: nakama.api.ListFriendsRequest.state:type_name -> google.protobuf.Int32Value
-	124, // 73: nakama.api.ListGroupsRequest.limit:type_name -> google.protobuf.Int32Value
-	124, // 74: nakama.api.ListGroupsRequest.members:type_name -> google.protobuf.Int32Value
-	123, // 75: nakama.api.ListGroupsRequest.open:type_name -> google.protobuf.BoolValue
-	124, // 76: nakama.api.ListGroupUsersRequest.limit:type_name -> google.protobuf.Int32Value
-	124, // 77: nakama.api.ListGroupUsersRequest.state:type_name -> google.protobuf.Int32Value
-	126, // 78: nakama.api.ListLeaderboardRecordsAroundOwnerRequest.limit:type_name -> google.protobuf.UInt32Value
-	127, // 79: nakama.api.ListLeaderboardRecordsAroundOwnerRequest.expiry:type_name -> google.protobuf.Int64Value
-	124, // 80: nakama.api.ListLeaderboardRecordsRequest.limit:type_name -> google.protobuf.Int32Value
-	127, // 81: nakama.api.ListLeaderboardRecordsRequest.expiry:type_name -> google.protobuf.Int64Value
-	124, // 82: nakama.api.ListMatchesRequest.limit:type_name -> google.protobuf.Int32Value
-	123, // 83: nakama.api.ListMatchesRequest.authoritative:type_name -> google.protobuf.BoolValue
-	125, // 84: nakama.api.ListMatchesRequest.label:type_name -> google.protobuf.StringValue
-	124, // 85: nakama.api.ListMatchesRequest.min_size:type_name -> google.protobuf.Int32Value
-	124, // 86: nakama.api.ListMatchesRequest.max_size:type_name -> google.protobuf.Int32Value
-	125, // 87: nakama.api.ListMatchesRequest.query:type_name -> google.protobuf.StringValue
-	124, // 88: nakama.api.ListNotificationsRequest.limit:type_name -> google.protobuf.Int32Value
-	124, // 89: nakama.api.ListStorageObjectsRequest.limit:type_name -> google.protobuf.Int32Value
-	126, // 90: nakama.api.ListTournamentRecordsAroundOwnerRequest.limit:type_name -> google.protobuf.UInt32Value
-	127, // 91: nakama.api.ListTournamentRecordsAroundOwnerRequest.expiry:type_name -> google.protobuf.Int64Value
-	124, // 92: nakama.api.ListTournamentRecordsRequest.limit:type_name -> google.protobuf.Int32Value
-	127, // 93: nakama.api.ListTournamentRecordsRequest.expiry:type_name -> google.protobuf.Int64Value
-	126, // 94: nakama.api.ListTournamentsRequest.category_start:type_name -> google.protobuf.UInt32Value
-	126, // 95: nakama.api.ListTournamentsRequest.category_end:type_name -> google.protobuf.UInt32Value
-	126, // 96: nakama.api.ListTournamentsRequest.start_time:type_name -> google.protobuf.UInt32Value
-	126, // 97: nakama.api.ListTournamentsRequest.end_time:type_name -> google.protobuf.UInt32Value
-	124, // 98: nakama.api.ListTournamentsRequest.limit:type_name -> google.protobuf.Int32Value
-	124, // 99: nakama.api.ListUserGroupsRequest.limit:type_name -> google.protobuf.Int32Value
-	124, // 100: nakama.api.ListUserGroupsRequest.state:type_name -> google.protobuf.Int32Value
-	125, // 101: nakama.api.Match.label:type_name -> google.protobuf.StringValue
+	127, // 68: nakama.api.LinkSteamRequest.sync:type_name -> google.protobuf.BoolValue
+	128, // 69: nakama.api.ListChannelMessagesRequest.limit:type_name -> google.protobuf.Int32Value
+	127, // 70: nakama.api.ListChannelMessagesRequest.forward:type_name -> google.protobuf.BoolValue
+	128, // 71: nakama.api.ListFriendsRequest.limit:type_name -> google.protobuf.Int32Value
+	128, // 72: nakama.api.ListFriendsRequest.state:type_name -> google.protobuf.Int32Value
+	128, // 73: nakama.api.ListGroupsRequest.limit:type_name -> google.protobuf.Int32Value
+	128, // 74: nakama.api.ListGroupsRequest.members:type_name -> google.protobuf.Int32Value
+	127, // 75: nakama.api.ListGroupsRequest.open:type_name -> google.protobuf.BoolValue
+	128, // 76: nakama.api.ListGroupUsersRequest.limit:type_name -> google.protobuf.Int32Value
+	128, // 77: nakama.api.ListGroupUsersRequest.state:type_name -> google.protobuf.Int32Value
+	130, // 78: nakama.api.ListLeaderboardRecordsAroundOwnerRequest.limit:type_name -> google.protobuf.UInt32Value
+	131, // 79: nakama.api.ListLeaderboardRecordsAroundOwnerRequest.expiry:type_name -> google.protobuf.Int64Value
+	128, // 80: nakama.api.ListLeaderboardRecordsRequest.limit:type_name -> google.protobuf.Int32Value
+	131, // 81: nakama.api.ListLeaderboardRecordsRequest.expiry:type_name -> google.protobuf.Int64Value
+	128, // 82: nakama.api.ListMatchesRequest.limit:type_name -> google.protobuf.Int32Value
+	127, // 83: nakama.api.ListMatchesRequest.authoritative:type_name -> google.protobuf.BoolValue
+	129, // 84: nakama.api.ListMatchesRequest.label:type_name -> google.protobuf.StringValue
+	128, // 85: nakama.api.ListMatchesRequest.min_size:type_name -> google.protobuf.Int32Value
+	128, // 86: nakama.api.ListMatchesRequest.max_size:type_name -> google.protobuf.Int32Value
+	129, // 87: nakama.api.ListMatchesRequest.query:type_name -> google.protobuf.StringValue
+	128, // 88: nakama.api.ListNotificationsRequest.limit:type_name -> google.protobuf.Int32Value
+	128, // 89: nakama.api.ListStorageObjectsRequest.limit:type_name -> google.protobuf.Int32Value
+	130, // 90: nakama.api.ListTournamentRecordsAroundOwnerRequest.limit:type_name -> google.protobuf.UInt32Value
+	131, // 91: nakama.api.ListTournamentRecordsAroundOwnerRequest.expiry:type_name -> google.protobuf.Int64Value
+	128, // 92: nakama.api.ListTournamentRecordsRequest.limit:type_name -> google.protobuf.Int32Value
+	131, // 93: nakama.api.ListTournamentRecordsRequest.expiry:type_name -> google.protobuf.Int64Value
+	130, // 94: nakama.api.ListTournamentsRequest.category_start:type_name -> google.protobuf.UInt32Value
+	130, // 95: nakama.api.ListTournamentsRequest.category_end:type_name -> google.protobuf.UInt32Value
+	130, // 96: nakama.api.ListTournamentsRequest.start_time:type_name -> google.protobuf.UInt32Value
+	130, // 97: nakama.api.ListTournamentsRequest.end_time:type_name -> google.protobuf.UInt32Value
+	128, // 98: nakama.api.ListTournamentsRequest.limit:type_name -> google.protobuf.Int32Value
+	128, // 99: nakama.api.ListUserGroupsRequest.limit:type_name -> google.protobuf.Int32Value
+	128, // 100: nakama.api.ListUserGroupsRequest.state:type_name -> google.protobuf.Int32Value
+	129, // 101: nakama.api.Match.label:type_name -> google.protobuf.StringValue
 	73,  // 102: nakama.api.MatchList.matches:type_name -> nakama.api.Match
-	122, // 103: nakama.api.Notification.create_time:type_name -> google.protobuf.Timestamp
+	126, // 103: nakama.api.Notification.create_time:type_name -> google.protobuf.Timestamp
 	75,  // 104: nakama.api.NotificationList.notifications:type_name -> nakama.api.Notification
 	79,  // 105: nakama.api.ReadStorageObjectsRequest.object_ids:type_name -> nakama.api.ReadStorageObjectId
-	122, // 106: nakama.api.StorageObject.create_time:type_name -> google.protobuf.Timestamp
-	122, // 107: nakama.api.StorageObject.update_time:type_name -> google.protobuf.Timestamp
+	126, // 106: nakama.api.StorageObject.create_time:type_name -> google.protobuf.Timestamp
+	126, // 107: nakama.api.StorageObject.update_time:type_name -> google.protobuf.Timestamp
 	84,  // 108: nakama.api.StorageObjectAcks.acks:type_name -> nakama.api.StorageObjectAck
 	83,  // 109: nakama.api.StorageObjects.objects:type_name -> nakama.api.StorageObject
 	83,  // 110: nakama.api.StorageObjectList.objects:type_name -> nakama.api.StorageObject
-	122, // 111: nakama.api.Tournament.create_time:type_name -> google.protobuf.Timestamp
-	122, // 112: nakama.api.Tournament.start_time:type_name -> google.protobuf.Timestamp
-	122, // 113: nakama.api.Tournament.end_time:type_name -> google.protobuf.Timestamp
-	0,   // 114: nakama.api.Tournament.operator:type_name -> nakama.api.Operator
+	126, // 111: nakama.api.Tournament.create_time:type_name -> google.protobuf.Timestamp
+	126, // 112: nakama.api.Tournament.start_time:type_name -> google.protobuf.Timestamp
+	126, // 113: nakama.api.Tournament.end_time:type_name -> google.protobuf.Timestamp
+	2,   // 114: nakama.api.Tournament.operator:type_name -> nakama.api.Operator
 	88,  // 115: nakama.api.TournamentList.tournaments:type_name -> nakama.api.Tournament
 	55,  // 116: nakama.api.TournamentRecordList.records:type_name -> nakama.api.LeaderboardRecord
 	55,  // 117: nakama.api.TournamentRecordList.owner_records:type_name -> nakama.api.LeaderboardRecord
-	125, // 118: nakama.api.UpdateAccountRequest.username:type_name -> google.protobuf.StringValue
-	125, // 119: nakama.api.UpdateAccountRequest.display_name:type_name -> google.protobuf.StringValue
-	125, // 120: nakama.api.UpdateAccountRequest.avatar_url:type_name -> google.protobuf.StringValue
-	125, // 121: nakama.api.UpdateAccountRequest.lang_tag:type_name -> google.protobuf.StringValue
-	125, // 122: nakama.api.UpdateAccountRequest.location:type_name -> google.protobuf.StringValue
-	125, // 123: nakama.api.UpdateAccountRequest.timezone:type_name -> google.protobuf.StringValue
-	125, // 124: nakama.api.UpdateGroupRequest.name:type_name -> google.protobuf.StringValue
-	125, // 125: nakama.api.UpdateGroupRequest.description:type_name -> google.protobuf.StringValue
-	125, // 126: nakama.api.UpdateGroupRequest.lang_tag:type_name -> google.protobuf.StringValue
-	125, // 127: nakama.api.UpdateGroupRequest.avatar_url:type_name -> google.protobuf.StringValue
-	123, // 128: nakama.api.UpdateGroupRequest.open:type_name -> google.protobuf.BoolValue
-	122, // 129: nakama.api.User.create_time:type_name -> google.protobuf.Timestamp
-	122, // 130: nakama.api.User.update_time:type_name -> google.protobuf.Timestamp
-	119, // 131: nakama.api.UserGroupList.user_groups:type_name -> nakama.api.UserGroupList.UserGroup
+	129, // 118: nakama.api.UpdateAccountRequest.username:type_name -> google.protobuf.StringValue
+	129, // 119: nakama.api.UpdateAccountRequest.display_name:type_name -> google.protobuf.StringValue
+	129, // 120: nakama.api.UpdateAccountRequest.avatar_url:type_name -> google.protobuf.StringValue
+	129, // 121: nakama.api.UpdateAccountRequest.lang_tag:type_name -> google.protobuf.StringValue
+	129, // 122: nakama.api.UpdateAccountRequest.location:type_name -> google.protobuf.StringValue
+	129, // 123: nakama.api.UpdateAccountRequest.timezone:type_name -> google.protobuf.StringValue
+	129, // 124: nakama.api.UpdateGroupRequest.name:type_name -> google.protobuf.StringValue
+	129, // 125: nakama.api.UpdateGroupRequest.description:type_name -> google.protobuf.StringValue
+	129, // 126: nakama.api.UpdateGroupRequest.lang_tag:type_name -> google.protobuf.StringValue
+	129, // 127: nakama.api.UpdateGroupRequest.avatar_url:type_name -> google.protobuf.StringValue
+	127, // 128: nakama.api.UpdateGroupRequest.open:type_name -> google.protobuf.BoolValue
+	126, // 129: nakama.api.User.create_time:type_name -> google.protobuf.Timestamp
+	126, // 130: nakama.api.User.update_time:type_name -> google.protobuf.Timestamp
+	123, // 131: nakama.api.UserGroupList.user_groups:type_name -> nakama.api.UserGroupList.UserGroup
 	93,  // 132: nakama.api.Users.users:type_name -> nakama.api.User
-	123, // 133: nakama.api.ValidatePurchaseAppleRequest.persist:type_name -> google.protobuf.BoolValue
-	123, // 134: nakama.api.ValidatePurchaseGoogleRequest.persist:type_name -> google.protobuf.BoolValue
-	123, // 135: nakama.api.ValidatePurchaseHuaweiRequest.persist:type_name -> google.protobuf.BoolValue
-	4,   // 136: nakama.api.ValidatedPurchase.store:type_name -> nakama.api.ValidatedPurchase.Store
-	122, // 137: nakama.api.ValidatedPurchase.purchase_time:type_name -> google.protobuf.Timestamp
-	122, // 138: nakama.api.ValidatedPurchase.create_time:type_name -> google.protobuf.Timestamp
-	122, // 139: nakama.api.ValidatedPurchase.update_time:type_name -> google.protobuf.Timestamp
-	5,   // 140: nakama.api.ValidatedPurchase.environment:type_name -> nakama.api.ValidatedPurchase.Environment
-	99,  // 141: nakama.api.ValidatePurchaseResponse.validated_purchases:type_name -> nakama.api.ValidatedPurchase
-	99,  // 142: nakama.api.PurchaseList.validated_purchases:type_name -> nakama.api.ValidatedPurchase
-	120, // 143: nakama.api.WriteLeaderboardRecordRequest.record:type_name -> nakama.api.WriteLeaderboardRecordRequest.LeaderboardRecordWrite
-	124, // 144: nakama.api.WriteStorageObject.permission_read:type_name -> google.protobuf.Int32Value
-	124, // 145: nakama.api.WriteStorageObject.permission_write:type_name -> google.protobuf.Int32Value
-	103, // 146: nakama.api.WriteStorageObjectsRequest.objects:type_name -> nakama.api.WriteStorageObject
-	121, // 147: nakama.api.WriteTournamentRecordRequest.record:type_name -> nakama.api.WriteTournamentRecordRequest.TournamentRecordWrite
-	93,  // 148: nakama.api.GroupUserList.GroupUser.user:type_name -> nakama.api.User
-	124, // 149: nakama.api.GroupUserList.GroupUser.state:type_name -> google.protobuf.Int32Value
-	45,  // 150: nakama.api.UserGroupList.UserGroup.group:type_name -> nakama.api.Group
-	124, // 151: nakama.api.UserGroupList.UserGroup.state:type_name -> google.protobuf.Int32Value
-	0,   // 152: nakama.api.WriteLeaderboardRecordRequest.LeaderboardRecordWrite.operator:type_name -> nakama.api.Operator
-	0,   // 153: nakama.api.WriteTournamentRecordRequest.TournamentRecordWrite.operator:type_name -> nakama.api.Operator
-	154, // [154:154] is the sub-list for method output_type
-	154, // [154:154] is the sub-list for method input_type
-	154, // [154:154] is the sub-list for extension type_name
-	154, // [154:154] is the sub-list for extension extendee
-	0,   // [0:154] is the sub-list for field type_name
+	127, // 133: nakama.api.ValidatePurchaseAppleRequest.persist:type_name -> google.protobuf.BoolValue
+	127, // 134: nakama.api.ValidateSubscriptionAppleRequest.persist:type_name -> google.protobuf.BoolValue
+	127, // 135: nakama.api.ValidatePurchaseGoogleRequest.persist:type_name -> google.protobuf.BoolValue
+	127, // 136: nakama.api.ValidateSubscriptionGoogleRequest.persist:type_name -> google.protobuf.BoolValue
+	127, // 137: nakama.api.ValidatePurchaseHuaweiRequest.persist:type_name -> google.protobuf.BoolValue
+	0,   // 138: nakama.api.ValidatedPurchase.store:type_name -> nakama.api.StoreProvider
+	126, // 139: nakama.api.ValidatedPurchase.purchase_time:type_name -> google.protobuf.Timestamp
+	126, // 140: nakama.api.ValidatedPurchase.create_time:type_name -> google.protobuf.Timestamp
+	126, // 141: nakama.api.ValidatedPurchase.update_time:type_name -> google.protobuf.Timestamp
+	1,   // 142: nakama.api.ValidatedPurchase.environment:type_name -> nakama.api.StoreEnvironment
+	101, // 143: nakama.api.ValidatePurchaseResponse.validated_purchases:type_name -> nakama.api.ValidatedPurchase
+	104, // 144: nakama.api.ValidateSubscriptionResponse.validated_subscription:type_name -> nakama.api.ValidatedSubscription
+	0,   // 145: nakama.api.ValidatedSubscription.store:type_name -> nakama.api.StoreProvider
+	126, // 146: nakama.api.ValidatedSubscription.purchase_time:type_name -> google.protobuf.Timestamp
+	126, // 147: nakama.api.ValidatedSubscription.create_time:type_name -> google.protobuf.Timestamp
+	126, // 148: nakama.api.ValidatedSubscription.update_time:type_name -> google.protobuf.Timestamp
+	1,   // 149: nakama.api.ValidatedSubscription.environment:type_name -> nakama.api.StoreEnvironment
+	126, // 150: nakama.api.ValidatedSubscription.expiry_time:type_name -> google.protobuf.Timestamp
+	101, // 151: nakama.api.PurchaseList.validated_purchases:type_name -> nakama.api.ValidatedPurchase
+	124, // 152: nakama.api.WriteLeaderboardRecordRequest.record:type_name -> nakama.api.WriteLeaderboardRecordRequest.LeaderboardRecordWrite
+	128, // 153: nakama.api.WriteStorageObject.permission_read:type_name -> google.protobuf.Int32Value
+	128, // 154: nakama.api.WriteStorageObject.permission_write:type_name -> google.protobuf.Int32Value
+	107, // 155: nakama.api.WriteStorageObjectsRequest.objects:type_name -> nakama.api.WriteStorageObject
+	125, // 156: nakama.api.WriteTournamentRecordRequest.record:type_name -> nakama.api.WriteTournamentRecordRequest.TournamentRecordWrite
+	93,  // 157: nakama.api.GroupUserList.GroupUser.user:type_name -> nakama.api.User
+	128, // 158: nakama.api.GroupUserList.GroupUser.state:type_name -> google.protobuf.Int32Value
+	45,  // 159: nakama.api.UserGroupList.UserGroup.group:type_name -> nakama.api.Group
+	128, // 160: nakama.api.UserGroupList.UserGroup.state:type_name -> google.protobuf.Int32Value
+	2,   // 161: nakama.api.WriteLeaderboardRecordRequest.LeaderboardRecordWrite.operator:type_name -> nakama.api.Operator
+	2,   // 162: nakama.api.WriteTournamentRecordRequest.TournamentRecordWrite.operator:type_name -> nakama.api.Operator
+	163, // [163:163] is the sub-list for method output_type
+	163, // [163:163] is the sub-list for method input_type
+	163, // [163:163] is the sub-list for extension type_name
+	163, // [163:163] is the sub-list for extension extendee
+	0,   // [0:163] is the sub-list for field type_name
 }
 
 func init() { file_api_proto_init() }
@@ -10519,7 +10881,7 @@ func file_api_proto_init() {
 			}
 		}
 		file_api_proto_msgTypes[91].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ValidatePurchaseGoogleRequest); i {
+			switch v := v.(*ValidateSubscriptionAppleRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -10531,7 +10893,7 @@ func file_api_proto_init() {
 			}
 		}
 		file_api_proto_msgTypes[92].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ValidatePurchaseHuaweiRequest); i {
+			switch v := v.(*ValidatePurchaseGoogleRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -10543,7 +10905,7 @@ func file_api_proto_init() {
 			}
 		}
 		file_api_proto_msgTypes[93].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ValidatedPurchase); i {
+			switch v := v.(*ValidateSubscriptionGoogleRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -10555,7 +10917,7 @@ func file_api_proto_init() {
 			}
 		}
 		file_api_proto_msgTypes[94].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ValidatePurchaseResponse); i {
+			switch v := v.(*ValidatePurchaseHuaweiRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -10567,7 +10929,7 @@ func file_api_proto_init() {
 			}
 		}
 		file_api_proto_msgTypes[95].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*PurchaseList); i {
+			switch v := v.(*ValidatedPurchase); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -10579,7 +10941,7 @@ func file_api_proto_init() {
 			}
 		}
 		file_api_proto_msgTypes[96].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WriteLeaderboardRecordRequest); i {
+			switch v := v.(*ValidatePurchaseResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -10591,7 +10953,7 @@ func file_api_proto_init() {
 			}
 		}
 		file_api_proto_msgTypes[97].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WriteStorageObject); i {
+			switch v := v.(*ValidateSubscriptionResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -10603,7 +10965,7 @@ func file_api_proto_init() {
 			}
 		}
 		file_api_proto_msgTypes[98].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WriteStorageObjectsRequest); i {
+			switch v := v.(*ValidatedSubscription); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -10615,6 +10977,54 @@ func file_api_proto_init() {
 			}
 		}
 		file_api_proto_msgTypes[99].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PurchaseList); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[100].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*WriteLeaderboardRecordRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[101].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*WriteStorageObject); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[102].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*WriteStorageObjectsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_api_proto_msgTypes[103].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WriteTournamentRecordRequest); i {
 			case 0:
 				return &v.state
@@ -10626,7 +11036,7 @@ func file_api_proto_init() {
 				return nil
 			}
 		}
-		file_api_proto_msgTypes[112].Exporter = func(v interface{}, i int) interface{} {
+		file_api_proto_msgTypes[116].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GroupUserList_GroupUser); i {
 			case 0:
 				return &v.state
@@ -10638,7 +11048,7 @@ func file_api_proto_init() {
 				return nil
 			}
 		}
-		file_api_proto_msgTypes[113].Exporter = func(v interface{}, i int) interface{} {
+		file_api_proto_msgTypes[117].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*UserGroupList_UserGroup); i {
 			case 0:
 				return &v.state
@@ -10650,7 +11060,7 @@ func file_api_proto_init() {
 				return nil
 			}
 		}
-		file_api_proto_msgTypes[114].Exporter = func(v interface{}, i int) interface{} {
+		file_api_proto_msgTypes[118].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WriteLeaderboardRecordRequest_LeaderboardRecordWrite); i {
 			case 0:
 				return &v.state
@@ -10662,7 +11072,7 @@ func file_api_proto_init() {
 				return nil
 			}
 		}
-		file_api_proto_msgTypes[115].Exporter = func(v interface{}, i int) interface{} {
+		file_api_proto_msgTypes[119].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*WriteTournamentRecordRequest_TournamentRecordWrite); i {
 			case 0:
 				return &v.state
@@ -10681,7 +11091,7 @@ func file_api_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_api_proto_rawDesc,
 			NumEnums:      6,
-			NumMessages:   116,
+			NumMessages:   120,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

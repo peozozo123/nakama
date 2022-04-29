@@ -353,20 +353,6 @@ export enum UserRole {
   USER_ROLE_READONLY = 4,
 }
 
-/** Environment where the purchase took place */
-export enum ValidatedPurchaseEnvironment {
-  UNKNOWN = 0,
-  SANDBOX = 1,
-  PRODUCTION = 2,
-}
-
-/** Validation Provider */
-export enum ValidatedPurchaseStore {
-  APPLE_APP_STORE = 0,
-  GOOGLE_PLAY_STORE = 1,
-  HUAWEI_APP_GALLERY = 2,
-}
-
 /** An individual update to a user's wallet. */
 export interface WalletLedger {
   // The changeset.
@@ -638,6 +624,20 @@ export interface ApiStorageObjectAck {
 	version?:string
 }
 
+/** Environment where a purchase/subscription took place, */
+export enum ApiStoreEnvironment {
+  UNKNOWN = 0,
+  SANDBOX = 1,
+  PRODUCTION = 2,
+}
+
+/** Validation Provider, */
+export enum ApiStoreProvider {
+  APPLE_APP_STORE = 0,
+  GOOGLE_PLAY_STORE = 1,
+  HUAWEI_APP_GALLERY = 2,
+}
+
 /** A user in the server. */
 export interface ApiUser {
   // The Apple Sign In ID in the user's account.
@@ -691,7 +691,7 @@ export interface ApiValidatedPurchase {
   // UNIX Timestamp when the receipt validation was stored in DB.
 	create_time?:string
   // Whether the purchase was done in production or sandbox environment.
-	environment?:ValidatedPurchaseEnvironment
+	environment?:ApiStoreEnvironment
   // Purchase Product ID.
 	product_id?:string
   // Raw provider validation response.
@@ -701,7 +701,7 @@ export interface ApiValidatedPurchase {
   // Whether the purchase had already been validated by Nakama before.
 	seen_before?:boolean
   // Store identifier
-	store?:ValidatedPurchaseStore
+	store?:ApiStoreProvider
   // Purchase Transaction ID.
 	transaction_id?:string
   // UNIX Timestamp when the receipt validation was updated in DB.
@@ -740,13 +740,6 @@ export class ConsoleService {
       timeoutMs: DEFAULT_TIMEOUT_MS,
     };
     this.config = config || defaultConfig;
-  }
-
-  /** Deletes all data */
-  deleteAllData(auth_token: string): Observable<any> {
-		const urlPath = `/v2/console/all`;
-    let params = new HttpParams();
-    return this.httpClient.delete(this.config.host + urlPath, { params: params, headers: this.getTokenAuthHeaders(auth_token) })
   }
 
   /** Delete (non-recorded) all user accounts. */
@@ -948,6 +941,13 @@ export class ConsoleService {
 		id = encodeURIComponent(String(id))
 		wallet_id = encodeURIComponent(String(wallet_id))
 		const urlPath = `/v2/console/account/${id}/wallet/${wallet_id}`;
+    let params = new HttpParams();
+    return this.httpClient.delete(this.config.host + urlPath, { params: params, headers: this.getTokenAuthHeaders(auth_token) })
+  }
+
+  /** Deletes all data */
+  deleteAllData(auth_token: string): Observable<any> {
+		const urlPath = `/v2/console/all`;
     let params = new HttpParams();
     return this.httpClient.delete(this.config.host + urlPath, { params: params, headers: this.getTokenAuthHeaders(auth_token) })
   }

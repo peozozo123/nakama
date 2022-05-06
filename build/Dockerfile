@@ -24,15 +24,31 @@ ENV GOOS linux
 ENV GOARCH amd64
 ENV CGO_ENABLED 1
 
+# Authorize SSH Host
+RUN mkdir -p /root/.ssh && \
+    chmod 0700 /root/.ssh && \
+    ssh-keyscan gitlab.com > /root/.ssh/known_hosts
+
+# Add the keys and set permissions
+RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
+    echo "$ssh_pub_key" > /root/.ssh/id_rsa.pub && \
+    chmod 600 /root/.ssh/id_rsa && \
+    chmod 600 /root/.ssh/id_rsa.pub
+
+# Avoid cache purge by adding requirements first
+
 RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get install -y --no-install-recommends ca-certificates gcc libc6-dev git && \
     git config --global advice.detachedHead false && \
-    git clone --quiet --no-checkout https://github.com/peozozo123/nakama /go/build/nakama
+    git clone --quiet --no-checkout https://gitlab.com/ManHuynhPureative/fish-cryto-arena-nakama /go/build/nakama
 
 WORKDIR /go/build/nakama
 RUN git checkout --quiet "$commit" && \
     go build -o /go/build-out/nakama -trimpath -mod=vendor -gcflags "-trimpath $PWD" -asmflags "-trimpath $PWD" -ldflags "-s -w -X main.version=$version -X main.commitID=$commit"
+
+# Remove SSH keys
+RUN rm -rf /root/.ssh/
 
 FROM debian:buster-slim
 

@@ -60,7 +60,7 @@ With the release generated we can create the official container image.
 
    ```
    cd build
-   docker build "$PWD" --file ./Dockerfile --build-arg commit="$(git rev-parse --short HEAD 2>/dev/null)" --build-arg version=2.1.0 -t heroiclabs/nakama:2.1.0
+   docker build "$PWD" --file ./Dockerfile --build-arg commit="$(git rev-parse --short HEAD 2>/dev/null)" --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --build-arg version=0.0.3 -t heroiclabs/nakama:0.0.3
    ```
 
 2. Push the image to the container registry.
